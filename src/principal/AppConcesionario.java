@@ -1,4 +1,6 @@
-public class Concesionario {
+package principal;
+
+public class AppConcesionario {
 
     public int suma(int a, int b) {
         return a + b;

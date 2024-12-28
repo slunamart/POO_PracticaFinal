@@ -1,14 +1,16 @@
 import org.junit.Before;
 import org.junit.Test;
+import principal.AppConcesionario;
+
 import static org.junit.Assert.*;
 
-public class ConcesionarioTest {
+public class AppConcesionarioTest {
 
-    private Concesionario c;
+    private AppConcesionario c;
 
     @Before
     public void antesDeMetodo (){
-        this.c = new Concesionario();
+        this.c = new AppConcesionario();
     }
 
     @Test
