@@ -26,7 +26,8 @@ public class Gestionador {
     public void rm( ObjetoGestionable elem ){
         for( ObjetoGestionable elementoLista : lista ){
             if( elementoLista.esIgual( elem ) ){
-                lista.remove( elem );
+                lista.remove( elementoLista );
+                return;
             }
         }
     }

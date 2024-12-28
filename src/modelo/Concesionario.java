@@ -11,7 +11,13 @@ public class Concesionario implements Serializable {
 
 
     public Concesionario (){
+        this.clientes = new Gestionador();
+        this.vehiculos = new Gestionador();
+        this.ventas = new Gestionador();
+    }
 
+    public Gestionador getVehiculos(){
+        return this.vehiculos;
     }
 
 }
