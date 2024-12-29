@@ -31,6 +31,21 @@ public class MyInput {
         return string; }
 // Lee un dato tipo int  desde el teclado
 
+    public static boolean yesNoQuestion(){
+        return readString("?" ).equalsIgnoreCase( "s" );
+    }
+
+    public static boolean yesNoQuestion(String prompt){
+        return readString(prompt).equalsIgnoreCase("s");
+    }
+
+    public static void waitForIntro(String prompt){
+        readString(prompt);
+    }
+
+    public static void waitForIntro(){
+        readString("Pulse intro para continuar...");
+    }
 
     public static int readInt( ){
         return readInt( null );

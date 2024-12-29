@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class Vehiculo {
 
     private Seccion seccion;
+    private String marca;
     private String modelo;
     private String anioFabric;
     private BigDecimal precioBase;
@@ -12,14 +13,21 @@ public class Vehiculo {
 
     public Vehiculo(){
         this.seccion = null;
+        this.marca = "";
         this.modelo = "";
         this.anioFabric = "";
         this.precioBase = BigDecimal.ZERO;
         this.stock = 0;
     }
 
-    public Vehiculo(Seccion seccion, String modelo, String anioFabric, BigDecimal precioBase, int stock){
+    public Vehiculo(Seccion seccion,
+                    String marca,
+                    String modelo,
+                    String anioFabric,
+                    BigDecimal precioBase,
+                    int stock){
         this.seccion = seccion;
+        this.marca = marca;
         this.modelo = modelo;
         this.anioFabric = anioFabric;
         this.precioBase = precioBase;
@@ -32,6 +40,14 @@ public class Vehiculo {
 
     public void setSeccion(Seccion seccion) {
         this.seccion = seccion;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public String getModelo() {
@@ -73,6 +89,26 @@ public class Vehiculo {
         this.stock += qtty;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
 
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        final Vehiculo v2 = (Vehiculo) obj;
+
+        if (this.marca == null){
+            return v2.marca == null;
+        }
+
+        if (this.modelo == null){
+            return v2.modelo == null;
+        }
+        return this.modelo.equals(v2.modelo) && this.marca.equals(v2.marca);
+    }
 
 }
