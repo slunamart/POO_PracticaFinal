@@ -36,7 +36,7 @@ public class AppConcesionario {
             switch (opcion){
                 case 1:
                     Vehiculo v = altaVehiculo();
-                    c.getVehiculos().add( v );
+                    c.addVehiculo( v );
                     break;
                 case 2: System.out.println("Baja de coches"); break;
                 case 3: System.out.println("Consultar coches"); break;

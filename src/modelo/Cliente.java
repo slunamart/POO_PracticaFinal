@@ -2,7 +2,7 @@ package modelo;
 
 import java.io.Serializable;
 
-public class Cliente extends ObjetoGestionable implements Serializable {
+public class Cliente implements Serializable {
 
     private String DNI;
     private String nombre;
@@ -74,9 +74,4 @@ public class Cliente extends ObjetoGestionable implements Serializable {
         this.deseaInfo = deseaInfo;
     }
 
-    @Override
-    public boolean esIgual(ObjetoGestionable o2) {
-        Cliente c2 = (Cliente) o2;
-        return this.DNI.equals( c2.getDNI() );
-    }
 }

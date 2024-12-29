@@ -2,7 +2,7 @@ package modelo;
 
 import java.math.BigDecimal;
 
-public class Vehiculo extends ObjetoGestionable {
+public class Vehiculo {
 
     private Seccion seccion;
     private String modelo;
@@ -24,11 +24,6 @@ public class Vehiculo extends ObjetoGestionable {
         this.anioFabric = anioFabric;
         this.precioBase = precioBase;
         this.stock = stock;
-    }
-
-    @Override
-    public boolean esIgual(ObjetoGestionable o2) {
-        return false;
     }
 
     public Seccion getSeccion() {

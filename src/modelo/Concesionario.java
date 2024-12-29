@@ -1,23 +1,28 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Concesionario implements Serializable {
 
-    private Gestionador clientes;
-    private Gestionador vehiculos;
-    private Gestionador ventas;
+    private List<Cliente> clientes;
+    private List<Vehiculo> vehiculos;
+    private List<Venta> ventas;
 
 
     public Concesionario (){
-        this.clientes = new Gestionador();
-        this.vehiculos = new Gestionador();
-        this.ventas = new Gestionador();
+        this.clientes = new ArrayList<>();
+        this.vehiculos = new ArrayList<>();
+        this.ventas = new ArrayList<>();
     }
 
-    public Gestionador getVehiculos(){
-        return this.vehiculos;
+    public void addVehiculo(Vehiculo v){
+        this.vehiculos.add(v);
+    }
+
+    public int sizeVehiculo(){
+        return this.vehiculos.size();
     }
 
 }

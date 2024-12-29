@@ -18,8 +18,8 @@ public class ConcesionarioTest {
     @Test
     public void anadirVehiculo(){
         Vehiculo v = new Vehiculo();
-        this.c.getVehiculos().add( v );
-        assertTrue( this.c.getVehiculos().size() > 0 );
+        this.c.addVehiculo(v);
+        assertTrue(c.sizeVehiculo() > 0 );
     }
 
 }
