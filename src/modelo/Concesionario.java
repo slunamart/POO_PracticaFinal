@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Concesionario implements Serializable {
 
+    private final Seccion noSeccion;
     private List<Seccion> secciones;
     private List<Cliente> clientes;
     private List<Vehiculo> vehiculos;
@@ -13,10 +14,15 @@ public class Concesionario implements Serializable {
 
 
     public Concesionario (){
+        noSeccion = new Seccion( "Sin Sección", "" );
         this.secciones = new ArrayList<>();
         this.clientes = new ArrayList<>();
         this.vehiculos = new ArrayList<>();
         this.ventas = new ArrayList<>();
+    }
+
+    public Seccion getSinSeccion(){
+        return this.noSeccion;
     }
 
     public void addSeccion( Seccion s ){

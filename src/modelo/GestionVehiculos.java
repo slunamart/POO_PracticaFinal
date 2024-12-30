@@ -36,7 +36,7 @@ public class GestionVehiculos {
         }
 
 
-        Menu vehiculos = new Menu("Menú vehiculos",
+        Menu menu_vehiculos = new Menu("Menú menu vehiculos",
                 new String[]{"Alta de coches",
                         "Baja coches",
                         "Consultar coches",
@@ -45,7 +45,7 @@ public class GestionVehiculos {
         int opcion;
         Vehiculo v;
         do{
-            opcion = vehiculos.show();
+            opcion = menu_vehiculos.show();
             switch (opcion){
                 case 1:
                     altaVehiculo();
@@ -64,16 +64,38 @@ public class GestionVehiculos {
         } while( opcion != 0 );
     }
 
+    public void showVehiculo(Vehiculo v){
+        Seccion s = v.getSeccion();
+        System.out.println("--------------------------------------------------------");
+        if( s != null )
+            System.out.println("Sección: "+ s.getID());
+        System.out.println("Marca: " + v.getMarca());
+        System.out.println("Modelo: " + v.getModelo());
+        System.out.println("Año de fabricación: " + v.getAnioFabric());
+        System.out.println("Precio por unidad: " + v.getPrecioBase());
+        System.out.println("Stock: " + v.getStock());
+    }
+
 
     private void altaVehiculo(){
-        System.out.println("Alta de un vehículo");
         Vehiculo vehiculo = new Vehiculo();
-        // MyInput.readString("Seccion");
+
+        MyInput.limpiarConsola();
+        System.out.println("========================================================");
+        System.out.println("Elije la sección en el que irá el vehículo");
+        vehiculo.setSeccion( gestionSecciones.eligeSeccion() );
+        System.out.println("========================================================");
+        MyInput.limpiarConsola();
+
+        System.out.println("========================================================");
+        System.out.println("Alta de un vehículo");
+        System.out.println("--------------------------------------------------------");
         vehiculo.setMarca( MyInput.readString("Marca") );
         vehiculo.setModelo( MyInput.readString("Modelo") );
         vehiculo.setAnioFabric( Integer.toString( MyInput.readInt("Año de fabricacion") ) ) ;
         vehiculo.setPrecioBase( BigDecimal.valueOf( MyInput.readDouble("precioBase") ) );
         vehiculo.setStock( MyInput.readInt("Stock") );
+        System.out.println("========================================================");
         c.addVehiculo( vehiculo);
     }
 
@@ -93,15 +115,23 @@ public class GestionVehiculos {
         }
         else{
             for (Vehiculo v2 : c.getArrayVehiculos()) {
-                System.out.println("Sección: ");
-                System.out.println("Marca: " + v2.getMarca());
-                System.out.println("Modelo: " + v2.getModelo());
-                System.out.println("Año de fabricación: " + v2.getAnioFabric());
-                System.out.println("Precio por unidad: " + v2.getPrecioBase());
-                System.out.println("Stock: " + v2.getStock());
+                showVehiculo(v2);
             }
         }
         MyInput.waitForIntro();
+    }
+
+    private void modVehiculo(){
+        Vehiculo vehiculo = new Vehiculo();
+        vehiculo.setModelo(MyInput.readString("Escribe el modelo del coche que quieres modificar") );
+        vehiculo = c.getVehiculo(vehiculo);
+        System.out.println("Elije la característica del coche que quieres modificar");
+        showVehiculo(vehiculo);
+        switch( MyInput.readInt("Escoga opción") ){
+            case 1: break;
+            default: break;
+        }
+
     }
 
     public GestionSecciones getSecciones() {

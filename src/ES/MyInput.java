@@ -15,6 +15,11 @@ public class MyInput {
         return readString( null );
     }
 
+    public static void limpiarConsola() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     /**
      * Método que permite leer una cadena de caracteres del teclado
      * @return retorna una cadena de caracteres
