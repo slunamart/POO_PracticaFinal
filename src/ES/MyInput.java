@@ -11,13 +11,16 @@ import java.util.ArrayList;
 public class MyInput {
     // Lee una cadena de caracteres desde el teclado
 
-    public static String readString( ){
-        return readString( null );
+    public static String modString( String prompt, String defaultValue ){
+        String newValue = readString( prompt + "( " + defaultValue + " )" );
+        if( newValue.isEmpty() )
+            return defaultValue;
+        else
+            return newValue;
     }
 
-    public static void limpiarConsola() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+    public static String readString( ){
+        return readString( null );
     }
 
     /**
@@ -52,6 +55,20 @@ public class MyInput {
         readString("Pulse intro para continuar...");
     }
 
+    public static int modInt( String prompt, int defaultValue ){
+        String newValue = modString( prompt, Integer.toString(defaultValue) );
+        if( newValue.isEmpty() ){
+            return defaultValue;
+        }else{
+            try {
+                return Integer.parseInt(newValue);
+            } catch (NumberFormatException ex) {
+                System.out.println("La entrada no tiene formato de número. Inténtelo de nuevo");
+                return modInt( prompt, defaultValue );
+            }
+        }
+    }
+
     public static int readInt( ){
         return readInt( null );
     }
@@ -70,6 +87,20 @@ public class MyInput {
         }
     }
 // Lee un dato tipo double  desde el teclado
+
+    public static double modDouble( String prompt, double defaultValue ){
+        String newValue = modString( prompt, Double.toString(defaultValue) );
+        if( newValue.isEmpty() ){
+            return defaultValue;
+        }else{
+            try {
+                return Double.parseDouble(newValue);
+            } catch (NumberFormatException ex) {
+                System.out.println("La entrada no tiene formato de número. Inténtelo de nuevo");
+                return modDouble( prompt, defaultValue );
+            }
+        }
+    }
 
     public static Double readDouble( ){
         return readDouble( null );

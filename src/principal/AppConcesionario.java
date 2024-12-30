@@ -39,6 +39,7 @@ public class AppConcesionario {
                     break;
             }
         }
+        System.out.println("!!!!!Gracias por usar nuestro programa!!!!!");
     }
 
 }

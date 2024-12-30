@@ -45,6 +45,7 @@ public class Concesionario implements Serializable {
         }
         return null;
     }
+
     public boolean existeVehiculo(Vehiculo v){
         for ( Vehiculo v2 : vehiculos){
             if (v2.equals(v)){

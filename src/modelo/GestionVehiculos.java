@@ -4,6 +4,8 @@ import ES.MyInput;
 import menus.Menu;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GestionVehiculos {
 
@@ -39,6 +41,7 @@ public class GestionVehiculos {
         Menu menu_vehiculos = new Menu("Menú menu vehiculos",
                 new String[]{"Alta de coches",
                         "Baja coches",
+                        "Modificar coche",
                         "Consultar coches",
                         "Aumentar stock",
                         "Mostrar todos los coches en una sección"});
@@ -54,10 +57,13 @@ public class GestionVehiculos {
                     bajaVehiculo();
                     break;
                 case 3:
+                    modVehiculo();
+                    break;
+                case 4:
                     consultaVehiculo();
                     break;
-                case 4: System.out.println("Aumentar stock"); break;
-                case 5: System.out.println("Mostrar todos los coches en una sección"); break;
+                case 5: System.out.println("Aumentar stock"); break;
+                case 6: System.out.println("Mostrar todos los coches en una sección"); break;
                 default:
                     // no hacer nada
             }
@@ -67,8 +73,7 @@ public class GestionVehiculos {
     public void showVehiculo(Vehiculo v){
         Seccion s = v.getSeccion();
         System.out.println("--------------------------------------------------------");
-        if( s != null )
-            System.out.println("Sección: "+ s.getID());
+        System.out.println("Sección: "+ s.getID());
         System.out.println("Marca: " + v.getMarca());
         System.out.println("Modelo: " + v.getModelo());
         System.out.println("Año de fabricación: " + v.getAnioFabric());
@@ -80,12 +85,10 @@ public class GestionVehiculos {
     private void altaVehiculo(){
         Vehiculo vehiculo = new Vehiculo();
 
-        MyInput.limpiarConsola();
         System.out.println("========================================================");
         System.out.println("Elije la sección en el que irá el vehículo");
         vehiculo.setSeccion( gestionSecciones.eligeSeccion() );
         System.out.println("========================================================");
-        MyInput.limpiarConsola();
 
         System.out.println("========================================================");
         System.out.println("Alta de un vehículo");
@@ -121,16 +124,42 @@ public class GestionVehiculos {
         MyInput.waitForIntro();
     }
 
-    private void modVehiculo(){
-        Vehiculo vehiculo = new Vehiculo();
-        vehiculo.setModelo(MyInput.readString("Escribe el modelo del coche que quieres modificar") );
-        vehiculo = c.getVehiculo(vehiculo);
-        System.out.println("Elije la característica del coche que quieres modificar");
-        showVehiculo(vehiculo);
-        switch( MyInput.readInt("Escoga opción") ){
-            case 1: break;
-            default: break;
+    public Vehiculo eligeVehiculo(){
+        List<String> marcaModelo = new ArrayList<>();
+        for (Vehiculo v2 : c.getArrayVehiculos()){
+            marcaModelo.add( v2.getMarca() + " - " + v2.getModelo());
         }
+        if (marcaModelo.size() == 1){
+            System.out.println("Como solo hay un coche procede a modificar los datos de este...");
+            return c.getArrayVehiculos().get(0);
+        }
+        else {
+            Menu menu_Vehiculos = new Menu("Lista de vehículos",
+                    marcaModelo.toArray(new String[0]));
+            int opcion = menu_Vehiculos.show();
+            if (opcion == 0)
+                return null;
+            else
+                return c.getArrayVehiculos().get(opcion - 1);
+        }
+
+    }
+
+    private void modVehiculo(){
+        do{
+            System.out.println("Escribe el modelo del coche que quieres modificar");
+            Vehiculo vehiculo = eligeVehiculo();
+            // pendiente ver que hacemos con la seccion
+            vehiculo.setMarca( MyInput.modString( "Nueva marca del vehiculo", vehiculo.getMarca() ) );
+            vehiculo.setModelo( MyInput.modString( "Nuevo modelo del vehiculo", vehiculo.getModelo() ) );
+            vehiculo.setAnioFabric( MyInput.modString( "Nuevo año de fabricación", vehiculo.getAnioFabric() ) );
+            vehiculo.setPrecioBase(BigDecimal.valueOf(
+                    MyInput.modDouble( "Nuevo precio base",
+                            vehiculo.getPrecioBase().doubleValue() )));
+            vehiculo.setStock( MyInput.modInt( "Nuevo stock", vehiculo.getStock() ) );
+            System.out.println("Nuevos datos del vehículo");
+            showVehiculo(vehiculo);
+        }while(MyInput.yesNoQuestion("¿Quieres modificar los datos de otro vehículo?"));
 
     }
 

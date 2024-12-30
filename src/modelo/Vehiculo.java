@@ -100,15 +100,10 @@ public class Vehiculo {
         }
 
         final Vehiculo v2 = (Vehiculo) obj;
-
-        if (this.marca == null){
-            return v2.marca == null;
-        }
-
         if (this.modelo == null){
             return v2.modelo == null;
         }
-        return this.modelo.equals(v2.modelo) && this.marca.equals(v2.marca);
+        return this.modelo.equals(v2.modelo);
     }
 
 }
