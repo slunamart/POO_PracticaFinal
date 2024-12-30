@@ -56,6 +56,10 @@ public class Concesionario implements Serializable {
         }
     }
 
+    public void rmSeccion(Seccion s){
+        secciones.remove(s);
+    }
+
     public int sizeVehiculo(){
         return this.vehiculos.size();
     }
@@ -63,4 +67,18 @@ public class Concesionario implements Serializable {
     public List<Vehiculo> getArrayVehiculos(){
         return vehiculos;
     }
+
+    public List<Seccion> getArraySecciones(){
+        return secciones;
+    }
+
+    public boolean existeSeccion(Seccion s){
+        for (Seccion s2 : secciones){
+            if (s2.equals(s)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

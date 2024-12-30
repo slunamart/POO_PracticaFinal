@@ -3,6 +3,8 @@ package modelo;
 import ES.MyInput;
 import menus.Menu;
 
+import java.util.List;
+
 public class GestionSecciones {
 
     private Concesionario c;
@@ -41,9 +43,34 @@ public class GestionSecciones {
         System.out.println("El identificador de sección puede ser algo como");
         System.out.println("\"SUV\", o \"utilitario\"");
         seccion.setID( MyInput.readString("Identificador de la sección: ") );
-        seccion.setDescripcion( MyInput.readString("Descripción de la sección: "));
+        seccion.setDescripcion( MyInput.readString("Descripción de la sección: ") );
         this.c.addSeccion( seccion );
     }
 
+    public void bajaSeccion(){
+        System.out.println("Baja de una sección");
+        Seccion seccion = new Seccion();
+        seccion.setID(MyInput.readString("Di el nombre de la sección que quieres dar de baja: ") );
+        if (c.existeSeccion(seccion)){
+            c.rmSeccion(seccion);
+        }
+        else{
+            System.out.println("no existe tal sección con ese ID");
+        }
+
+    }
+
+    public void mostrarSecciones(){
+        if(c.getArraySecciones().isEmpty()) {
+            System.out.println("No hay secciones aún en este concesionario");
+        }
+        else{
+            for (Seccion s2 : this.c.getArraySecciones()) {
+                System.out.println("Nombre de la seccion" + s2.getID());
+                System.out.println("Descripción de la sección: " + s2.getDescripcion());
+            }
+        }
+        MyInput.waitForIntro();
+    }
 
 }
