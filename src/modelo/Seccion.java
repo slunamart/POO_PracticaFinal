@@ -1,7 +1,10 @@
 package modelo;
 
-public class Seccion {
+import java.io.Serializable;
 
+public class Seccion implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private String ID;
     private String descripcion;
 

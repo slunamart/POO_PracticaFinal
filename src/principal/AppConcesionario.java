@@ -1,16 +1,37 @@
 package principal;
 
+import ES.MyInput;
 import menus.Menu;
 import modelo.Concesionario;
 import modelo.GestionSecciones;
 import modelo.GestionVehiculos;
 
+import java.io.File;
+
 public class AppConcesionario {
 
+    static final String nombreFicheroDefecto = "concesionario_produccion.txt";
 
+    public static Concesionario deserializar( String nombreFichero ){
+        File f = new File(nombreFichero);
+        if(f.exists()) {
+            return MyInput.deserialize(nombreFichero);
+        }else{
+            return new Concesionario();
+        }
+    }
+
+    public static void serializar( Concesionario c , String nombreFichero ){
+        MyInput.serialize(c, nombreFichero);
+    }
 
     public static void main(String[] args) {
-        Concesionario c = new Concesionario();
+
+        String nombreFichero = nombreFicheroDefecto;
+        if( args.length > 0 ){
+            nombreFichero = args[0];
+        }
+        Concesionario c = deserializar(nombreFichero);
 
         Menu principal = new Menu( "Menú Principal",
                             new String[]{ "Secciones",
@@ -36,6 +57,9 @@ public class AppConcesionario {
             }
         }
         System.out.println("!!!!!Gracias por usar nuestro programa!!!!!");
+
+        serializar(c, nombreFichero);
     }
+
 
 }

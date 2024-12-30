@@ -1,8 +1,8 @@
+import ES.MyInput;
 import modelo.Concesionario;
 import modelo.Vehiculo;
 import org.junit.Before;
 import org.junit.Test;
-import principal.AppConcesionario;
 
 import static org.junit.Assert.*;
 
@@ -36,4 +36,20 @@ public class ConcesionarioTest {
         assertEquals(v2.getStock(), 9);
     }
 
+    @Test
+    public void serializeTest(){
+        Concesionario c = new Concesionario();
+        Vehiculo v = new Vehiculo();
+        v.setMarca("Ford");
+        v.setModelo("forito");
+        c.addVehiculo(v);
+        MyInput.serialize(c,"concesionario.txt");
+
+        Concesionario c2 = MyInput.deserialize("concesionario.txt");
+
+        assertEquals( c.sizeVehiculo() , c2.sizeVehiculo () );
+        assertEquals(c2.sizeVehiculo(),1);
+        Vehiculo v2 = c2.getArrayVehiculos().get(0);
+        assertEquals( v, v2);
+    }
 }

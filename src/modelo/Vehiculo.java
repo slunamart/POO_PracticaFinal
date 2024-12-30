@@ -1,9 +1,11 @@
 package modelo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Vehiculo {
+public class Vehiculo implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private Seccion seccion;
     private String marca;
     private String modelo;
