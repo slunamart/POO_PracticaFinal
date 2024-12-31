@@ -15,22 +15,18 @@ public class GestionClientes {
 
     public void showMenu() {
 
-        // * FALTA IMPLEMENTAR sizeCliente EN CONCESIONARIO *
-        /*
         if (this.c.sizeCliente() == 0){
             System.out.println("ERROR: No hay clientes disponibles.");
             if(MyInput.yesNoQuestion("¿Desea dar de alta un cliente? [Y/N]")){
-                this.GestionClientes.altaCliente();
+                altaCliente();
             }
         }
-        */
 
-        /*
+
         if (this.c.sizeCliente() == 0){
-            System.out.println("ERROR: No hay clientes disponibles.);
+            System.out.println("ERROR: No hay clientes disponibles.");
             return;
         }
-        */
 
 
         Menu menu_clientes = new Menu("Menú Clientes",
@@ -49,7 +45,7 @@ public class GestionClientes {
                     altaCliente();
                     break;
                 case 2:
-                    //infoCliente();
+                    consultaCliente();
                     break;
                 case 3:
                     //infoTodosClientes();
@@ -64,14 +60,21 @@ public class GestionClientes {
     }
 
 
-
-    public void altaCliente(){
+    private void altaCliente(){
         Cliente cliente = new Cliente();
 
         System.out.println("========================================================");
         System.out.println("Alta de un cliente");
         System.out.println("--------------------------------------------------------");
-        cliente.setDNI( MyInput.readString("DNI: "));
+
+        String dni = MyInput.readString("DNI: ");
+        if(c.buscarPorDNI(dni) != null){
+            System.out.println("ERROR: El DNI" + dni + "ya está registrado en el sistema.");
+            MyInput.waitForIntro("Pulse intro para continuar.");
+            return;
+        }
+
+        cliente.setDNI(dni);
         cliente.setNombre(MyInput.readString("Nombre: "));
         cliente.setApellidos(MyInput.readString("Apellidos: "));
         cliente.setTelefono(MyInput.readString("Número de teléfono: "));
@@ -79,9 +82,26 @@ public class GestionClientes {
         c.addCliente(cliente);
     }
 
-    public void infoCLiente(){
-
+    private void consultaCliente() {
+        if (c.getArrayClientes().isEmpty()) {
+            System.out.println("Aún no hay clientes en el concesionario.");
+        } else {
+            String dni = MyInput.readString("Introduzca el DNI del cliente: ");
+            Cliente cl2 = c.buscarPorDNI(dni);
+            if (cl2 == null){
+                System.out.println("ERROR: El DNI " + dni + " no está asociado a ningún cliente.");
+            }else{
+                showCliente(cl2);
+            }
+        }
+        MyInput.waitForIntro();
     }
 
-
+    public void showCliente(Cliente cl){
+        System.out.println("--------------------------------------------------------");
+        System.out.println("DNI: " + cl.getDNI());
+        System.out.println("Nombre completo: " + cl.getNombre() + cl.getApellidos());
+        System.out.println("Número de teléfono: " + cl.getTelefono());
+        System.out.println("Publicidad: " + cl.getDeseaInfo());
+    }
 }

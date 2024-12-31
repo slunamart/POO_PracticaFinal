@@ -102,7 +102,7 @@ public class Concesionario implements Serializable {
         this.clientes.add(cl);
     }
 
-    public int sizeClientes(){
+    public int sizeCliente(){
         return this.clientes.size();
     }
 
