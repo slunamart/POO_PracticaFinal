@@ -49,20 +49,19 @@ public class GestionClientes {
                     altaCliente();
                     break;
                 case 2:
-                    infoCliente();
+                    //infoCliente();
                     break;
                 case 3:
-                    infoTodosClientes();
+                    //infoTodosClientes();
                     break;
                 case 4:
-                    infoClientesPublicidad();
+                    //infoClientesPublicidad();
                     break;
                 default:
 
             }
         }while(opcion!=0);
     }
-
 
     // Implementar este código en Concesionario, e implementar para tener los arraylist de clientes públicos, como los de secciones y vehículos.
 
