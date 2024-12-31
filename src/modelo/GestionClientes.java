@@ -36,7 +36,6 @@ public class GestionClientes {
                         "Información de clientes que desean recibir publicidad"});
 
         int opcion;
-        Cliente cl;
 
         do{
             opcion = menu_clientes.show();
@@ -48,10 +47,10 @@ public class GestionClientes {
                     consultaCliente();
                     break;
                 case 3:
-                    //infoTodosClientes();
+                    infoTodosClientes();
                     break;
                 case 4:
-                    //infoClientesPublicidad();
+                    infoClientesPublicidad();
                     break;
                 default:
 
@@ -103,5 +102,27 @@ public class GestionClientes {
         System.out.println("Nombre completo: " + cl.getNombre() + cl.getApellidos());
         System.out.println("Número de teléfono: " + cl.getTelefono());
         System.out.println("Publicidad: " + cl.getDeseaInfo());
+    }
+
+    public void infoTodosClientes(){
+        if (c.getArrayClientes().isEmpty()){
+            System.out.println("Aún no hay clientes en el concesionario.");
+        }else{
+            for(Cliente cl2 : c.getArrayClientes()){
+                showCliente(cl2);
+            }
+        }
+    }
+
+    public void infoClientesPublicidad(){
+        if (c.getArrayClientes().isEmpty()){
+            System.out.println("Aún no hay clientes en el concesionario.");
+        }else{
+            for(Cliente cl2 : c.getArrayClientes()){
+                if(cl2.getDeseaInfo() == true){
+                    showCliente(cl2);
+                }
+            }
+        }
     }
 }
