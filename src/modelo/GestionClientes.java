@@ -63,17 +63,7 @@ public class GestionClientes {
         }while(opcion!=0);
     }
 
-    // Implementar este código en Concesionario, e implementar para tener los arraylist de clientes públicos, como los de secciones y vehículos.
 
-    /*public Cliente buscarPorDNI(String dni) {
-        for (Cliente cliente : clientes) { // Recorrer la lista de clientes
-            if (cliente.getDNI().equals(dni)) { // Compara el DNI
-                return cliente; // Devuelve el cliente si encuentra uno con el mismo DNI
-            }
-        }
-        return null; // Si no encuentra un cliente con ese DNI, devuelve null
-    }
-    */
 
     public void altaCliente(){
         Cliente cliente = new Cliente();
@@ -86,11 +76,9 @@ public class GestionClientes {
         cliente.setApellidos(MyInput.readString("Apellidos: "));
         cliente.setTelefono(MyInput.readString("Número de teléfono: "));
         cliente.setDeseaInfo(MyInput.yesNoQuestion("¿Desea recibir notificaciones publicitarias? [Y/N]"));
-        // *FALTA IMPLEMENTAR add.Cliente() EN CONCESIONARIO*
-        // c.addCliente(cliente);
+        c.addCliente(cliente);
     }
 
-    // Implementar buscador de cliente por DNI, si existe, devuelve el cliente, y si no existe, devuelve null;
     public void infoCLiente(){
 
     }
