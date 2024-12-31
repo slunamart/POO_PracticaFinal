@@ -67,7 +67,7 @@ public class Cliente implements Serializable {
         this.telefono = telefono;
     }
 
-    public boolean isDeseaInfo() {
+    public boolean getDeseaInfo() {
         return deseaInfo;
     }
 
