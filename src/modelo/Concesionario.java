@@ -147,4 +147,25 @@ public class Concesionario implements Serializable {
         return new String(letrasArray);
     }
 
+    public Cliente buscarPorDNI(String dni) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getDNI().equals(dni)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public void addCliente(Cliente cl){
+        this.clientes.add(cl);
+    }
+
+    public int sizeCliente(){
+        return this.clientes.size();
+    }
+
+    public List<Cliente> getArrayClientes(){
+        return clientes;
+    }
+
 }
