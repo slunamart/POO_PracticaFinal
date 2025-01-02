@@ -5,6 +5,7 @@ import menus.Menu;
 import modelo.Concesionario;
 import modelo.GestionSecciones;
 import modelo.GestionVehiculos;
+import modelo.GestionVentas;
 
 import java.io.File;
 
@@ -36,11 +37,13 @@ public class AppConcesionario {
         Menu principal = new Menu( "Menú Principal",
                             new String[]{ "Secciones",
                                           "Mantenimiento del parque de vehículos",
-                                          "Mantenimiento de clientes" } );
+                                          "Mantenimiento de clientes",
+                                          "Ventas"} );
 
         int opcion = -1;
         GestionSecciones gs = new GestionSecciones(c);
         GestionVehiculos gv = new GestionVehiculos(c);
+        GestionVentas gve = new GestionVentas(c);
         gv.setSecciones( gs );
         while( opcion != 0 ){
             opcion = principal.show();
@@ -54,6 +57,8 @@ public class AppConcesionario {
                 case 3:
                     System.out.println("Aquí irá el mantenimiento de clientes");
                     break;
+                case 4:
+                    gve.showMenu();
             }
         }
         System.out.println("!!!!!Gracias por usar nuestro programa!!!!!");

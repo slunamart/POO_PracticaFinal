@@ -12,6 +12,7 @@ public class Concesionario implements Serializable {
     private List<Cliente> clientes;
     private List<Vehiculo> vehiculos;
     private List<Venta> ventas;
+    private List<String> matriculas;
 
 
     public Concesionario (){
@@ -20,6 +21,7 @@ public class Concesionario implements Serializable {
         this.clientes = new ArrayList<>();
         this.vehiculos = new ArrayList<>();
         this.ventas = new ArrayList<>();
+        this.matriculas = new ArrayList<>();
     }
 
     public Seccion getSinSeccion(){
@@ -80,6 +82,14 @@ public class Concesionario implements Serializable {
         return secciones;
     }
 
+    public List<String> getArrayMatriculas(){
+        return matriculas;
+    }
+
+    public List<Venta> getArrayVentas(){
+        return ventas;
+    }
+
     public boolean existeSeccion(Seccion s){
         for (Seccion s2 : secciones){
             if (s2.equals(s)){
@@ -87,6 +97,54 @@ public class Concesionario implements Serializable {
             }
         }
         return false;
+    }
+
+    //parte de matrículas
+    public String crearMatricula() {
+        String nuevaMatricula;
+        List<String> matriculasExistentes = getArrayMatriculas();
+
+        if (matriculasExistentes.isEmpty()) {
+            nuevaMatricula = "0000AAA"; // Primera matrícula si la lista está vacía
+        } else {
+            String ultimaMatricula = matriculasExistentes.get(matriculasExistentes.size() - 1);
+            nuevaMatricula = incrementarMatricula(ultimaMatricula);
+        }
+
+        return nuevaMatricula;
+    }
+
+    // Método auxiliar para incrementar una matrícula en orden
+    private String incrementarMatricula(String matricula) {
+        String numeros = matricula.substring(0, 4);
+        String letras = matricula.substring(4);
+
+        // Incrementar números
+        int num = Integer.parseInt(numeros);
+        num++;
+
+        if (num > 9999) {
+            num = 0;
+            letras = incrementarLetras(letras);
+        }
+
+        return String.format("%04d%s", num, letras);
+    }
+
+    // Método auxiliar para incrementar las letras
+    private String incrementarLetras(String letras) {
+        char[] letrasArray = letras.toCharArray();
+
+        for (int i = letrasArray.length - 1; i >= 0; i--) {
+            if (letrasArray[i] < 'Z') {
+                letrasArray[i]++;
+                break;
+            } else {
+                letrasArray[i] = 'A';
+            }
+        }
+
+        return new String(letrasArray);
     }
 
 }

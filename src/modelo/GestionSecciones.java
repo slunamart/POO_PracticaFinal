@@ -8,7 +8,7 @@ import java.util.List;
 
 public class GestionSecciones {
 
-    private Concesionario c;
+    private final Concesionario c;
 
     public GestionSecciones( Concesionario c ){
         this.c = c;

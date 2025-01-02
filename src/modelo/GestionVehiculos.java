@@ -9,7 +9,7 @@ import java.util.List;
 
 public class GestionVehiculos {
 
-    private Concesionario c;
+    private final Concesionario c;
     private GestionSecciones gestionSecciones;
 
 
@@ -38,7 +38,7 @@ public class GestionVehiculos {
         }
 
 
-        Menu menu_vehiculos = new Menu("Menú menu vehiculos",
+        Menu menu_vehiculos = new Menu("Menú vehiculos",
                 new String[]{"Alta de coches",
                         "Baja coches",
                         "Modificar coche",

@@ -36,6 +36,18 @@ public class Vehiculo implements Serializable {
         this.stock = stock;
     }
 
+    //vehiculo como unidad
+    //TODO aquí irán las mejoras
+    public Vehiculo(Vehiculo v){
+        seccion = v.seccion;
+        marca = v.marca;
+        modelo = v.marca;
+        anioFabric = v.anioFabric;
+        precioBase = v.precioBase;
+        stock = 1;//para indicar que es una unica unidad
+        //mejoras
+    }
+
     public Seccion getSeccion() {
         return seccion;
     }

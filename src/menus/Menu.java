@@ -17,7 +17,10 @@ public class Menu {
     }
 
     public int show(){
+        System.out.println("=========================================================");
         System.out.println( "  " + titulo );
+        System.out.println("---------------------------------------------------------");
+
         System.out.println();
 
         for(int i = 0; i<opciones.size(); i++){
@@ -33,6 +36,7 @@ public class Menu {
                 System.out.println("opcion incorrecta");
             }
         }while( !this.opcionEsValida( opcionNumber ) );
+        System.out.println("=========================================================");
         return opcionNumber;
     }
 
