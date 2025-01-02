@@ -2,10 +2,7 @@ package principal;
 
 import ES.MyInput;
 import menus.Menu;
-import modelo.Concesionario;
-import modelo.GestionSecciones;
-import modelo.GestionVehiculos;
-import modelo.GestionVentas;
+import modelo.*;
 
 import java.io.File;
 
@@ -44,7 +41,11 @@ public class AppConcesionario {
         GestionSecciones gs = new GestionSecciones(c);
         GestionVehiculos gv = new GestionVehiculos(c);
         GestionVentas gve = new GestionVentas(c);
+        GestionClientes gcl = new GestionClientes(c);
+        // inyectamos dependencias en cada uno de los gestores
         gv.setSecciones( gs );
+        gve.setGestionClientes( gcl );
+        gve.setGestionVehiculos( gv );
         while( opcion != 0 ){
             opcion = principal.show();
             switch( opcion ) {
@@ -55,7 +56,7 @@ public class AppConcesionario {
                     gv.showMenu();
                     break;
                 case 3:
-                    System.out.println("Aquí irá el mantenimiento de clientes");
+                    gcl.showMenu();
                     break;
                 case 4:
                     gve.showMenu();

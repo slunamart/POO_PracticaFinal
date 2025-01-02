@@ -1,5 +1,6 @@
 package modelo;
 
+import ES.MyInput;
 import menus.Menu;
 
 import java.util.ArrayList;
@@ -8,12 +9,27 @@ import java.util.List;
 public class GestionVentas {
 
     private final Concesionario c;
+    private GestionClientes gestionClientes;
+    private GestionVehiculos gestionVehiculos;
 
     public GestionVentas(Concesionario c){
         this.c = c;
     }
 
     public void showMenu(){
+
+        if( this.c.sizeVenta() == 0 ){
+            System.out.println("No hay ventas disponibles");
+            altaVenta();
+        }
+
+        // al llegar a este punto, la sección puede existir o no,
+        // por lo que no queda más remedio que verificarlo de nuevo
+        if( this.c.sizeSeccion() == 0 ){
+            System.out.println("No hay secciones disponibles");
+            return;
+        }
+
         Menu ventas = new Menu( "Menú Ventas",
                 new String[]{ "Vender un coche",
                         "Deshacer una venta",
@@ -64,7 +80,17 @@ public class GestionVentas {
 
     public void altaVenta(){
         Venta venta = new Venta();
-        //System.out.println("Elige el cliente que está haciendo la compra");
+        System.out.println("========================================================");
+        System.out.println("Elije el cliente que está haciendo la compra");
+        venta.setCliente( gestionClientes.eligeCliente() );
+        System.out.println("========================================================");
+        System.out.println("========================================================");
+        System.out.println("Ahora el coche que está comprando");
+        venta.setVehiculo( gestionVehiculos.eligeVehiculo() );
+        System.out.println("========================================================");
+        venta.setMatricula(c.crearMatricula());
+        System.out.println("Al coche se le ha asignado la matrícula: " + venta.getMatricula());
+        this.c.addVenta(venta);
     }
 
     public void bajaVenta(){
@@ -72,7 +98,27 @@ public class GestionVentas {
     }
 
     public void mostrarVentas(){
-        System.out.println("mostrarVentas");
+        if(c.getArraySecciones().isEmpty()) {
+            System.out.println("Este concesionario no ha realizado ninguna venta todavía");
+        }
+        else{
+            System.out.println("=======================================================");
+            System.out.println("-- NO mostraremos las matrículas por razones de privacidad"); //no porque no sepamos hacerlo
+            for (Venta v2 : this.c.getArrayVentas()) {
+                System.out.println("---------------------------------------------------");
+                System.out.println("Nombre completo: " + v2.getCliente().getNombre() + " " + v2.getCliente().getApellidos());
+                System.out.println("Coche que adquirió: " + v2.getVehiculo().getMarca() + " " + v2.getVehiculo().getModelo());
+            }
+        }
+        System.out.println("=======================================================");
+        MyInput.waitForIntro();
     }
 
+    public void setGestionClientes(GestionClientes gestionClientes) {
+        this.gestionClientes = gestionClientes;
+    }
+
+    public void setGestionVehiculos(GestionVehiculos gestionVehiculos) {
+        this.gestionVehiculos = gestionVehiculos;
+    }
 }

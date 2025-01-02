@@ -74,6 +74,10 @@ public class Concesionario implements Serializable {
         return this.vehiculos.size();
     }
 
+    public int sizeVenta(){
+        return this.ventas.size();
+    }
+
     public List<Vehiculo> getArrayVehiculos(){
         return vehiculos;
     }
@@ -114,7 +118,7 @@ public class Concesionario implements Serializable {
         return nuevaMatricula;
     }
 
-    // Método auxiliar para incrementar una matrícula en orden
+    //Parte auxiliar para incrementar una matrícula en orden
     private String incrementarMatricula(String matricula) {
         String numeros = matricula.substring(0, 4);
         String letras = matricula.substring(4);
@@ -158,6 +162,10 @@ public class Concesionario implements Serializable {
 
     public void addCliente(Cliente cl){
         this.clientes.add(cl);
+    }
+
+    public void addVenta(Venta v){
+        this.ventas.add(v);
     }
 
     public int sizeCliente(){
