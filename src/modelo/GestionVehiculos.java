@@ -82,7 +82,7 @@ public class GestionVehiculos {
     }
 
 
-    private void altaVehiculo(){
+    public void altaVehiculo(){
         Vehiculo vehiculo = new Vehiculo();
 
         System.out.println("========================================================");

@@ -78,7 +78,7 @@ public class GestionClientes {
 
     }
 
-    private void altaCliente(){
+    public void altaCliente(){
         Cliente cliente = new Cliente();
 
         System.out.println("========================================================");

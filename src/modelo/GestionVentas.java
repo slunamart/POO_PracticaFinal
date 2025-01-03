@@ -12,21 +12,39 @@ public class GestionVentas {
     private GestionClientes gestionClientes;
     private GestionVehiculos gestionVehiculos;
 
+
+    private GestionSecciones gestionSecciones;
+
     public GestionVentas(Concesionario c){
         this.c = c;
     }
 
     public void showMenu(){
 
-        if( this.c.sizeVenta() == 0 ){
-            System.out.println("No hay ventas disponibles");
-            altaVenta();
+        if( this.c.sizeCliente() == 0 ){
+            System.out.println("No hay clientes en el concesionario");
+            if ( MyInput.yesNoQuestion("¿quieres añadir uno?") ) {
+                this.gestionClientes.altaCliente();
+            }
         }
 
-        // al llegar a este punto, la sección puede existir o no,
+        if( this.c.sizeSeccion() == 0){
+            System.out.println("No hay Secciones en el concesionario");
+            if (MyInput.yesNoQuestion("¿quieres añadir una?") ) {
+                this.gestionSecciones.altaSeccion();
+            }
+        }
+        if (this.c.sizeSeccion() != 0 && this.c.sizeVehiculo() == 0){
+            System.out.println("No hay vehículos en el concesionario");
+            if (MyInput.yesNoQuestion("¿quieres añadir uno?")) {
+                this.gestionVehiculos.altaVehiculo();
+            }
+        }
+
+        // al llegar a este punto, pueden no cumplirse los requisitos aún,
         // por lo que no queda más remedio que verificarlo de nuevo
-        if( this.c.sizeSeccion() == 0 ){
-            System.out.println("No hay secciones disponibles");
+        if( this.c.sizeCliente() == 0 && this.c.sizeVehiculo() == 0 && this.c.sizeSeccion() == 0 ) {
+            System.out.println("No hay ni clientes, ni vehículos, ni secciones disponibles");
             return;
         }
 
@@ -120,5 +138,9 @@ public class GestionVentas {
 
     public void setGestionVehiculos(GestionVehiculos gestionVehiculos) {
         this.gestionVehiculos = gestionVehiculos;
+    }
+
+    public void setGestionSecciones(GestionSecciones gestionSecciones) {
+        this.gestionSecciones = gestionSecciones;
     }
 }

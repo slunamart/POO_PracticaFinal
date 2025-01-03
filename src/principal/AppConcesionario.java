@@ -46,6 +46,7 @@ public class AppConcesionario {
         gv.setSecciones( gs );
         gve.setGestionClientes( gcl );
         gve.setGestionVehiculos( gv );
+        gve.setGestionSecciones( gs );
         while( opcion != 0 ){
             opcion = principal.show();
             switch( opcion ) {
