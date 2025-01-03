@@ -112,7 +112,10 @@ public class GestionVentas {
     }
 
     public void bajaVenta(){
-        System.out.println("bajaVenta");
+        System.out.println("Elige la venta a dar de baja");
+        Venta venta = eligeVenta();
+        c.rmVenta(venta);
+        System.out.println("========================================================");
     }
 
     public void mostrarVentas(){

@@ -94,6 +94,10 @@ public class Concesionario implements Serializable {
         return ventas;
     }
 
+    public void rmVenta(Venta v){
+        ventas.remove(v);
+    }
+
     public boolean existeSeccion(Seccion s){
         for (Seccion s2 : secciones){
             if (s2.equals(s)){
