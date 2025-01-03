@@ -108,6 +108,15 @@ public class Concesionario implements Serializable {
     }
 
     //parte de matrículas
+    public boolean existeMatricula(String m){
+        for (String m2 : matriculas){
+            if (m2.equals(m)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String crearMatricula() {
         String nuevaMatricula;
         List<String> matriculasExistentes = getArrayMatriculas();
@@ -119,6 +128,7 @@ public class Concesionario implements Serializable {
             nuevaMatricula = incrementarMatricula(ultimaMatricula);
         }
 
+        matriculas.add(nuevaMatricula);
         return nuevaMatricula;
     }
 

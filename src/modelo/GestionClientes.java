@@ -81,11 +81,10 @@ public class GestionClientes {
     public void altaCliente(){
         Cliente cliente = new Cliente();
 
-        System.out.println("========================================================");
         System.out.println("Alta de un cliente");
-        System.out.println("--------------------------------------------------------");
+        System.out.println("---------------------------------------------------------");
 
-        String dni = MyInput.readString("DNI: ");
+        String dni = MyInput.readString("DNI");
         if(c.buscarPorDNI(dni) != null){
             System.out.println("ERROR: El DNI" + dni + "ya está registrado en el sistema.");
             MyInput.waitForIntro("Pulse intro para continuar.");

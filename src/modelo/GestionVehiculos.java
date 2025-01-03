@@ -46,7 +46,6 @@ public class GestionVehiculos {
                         "Aumentar stock",
                         "Mostrar todos los coches en una sección"});
         int opcion;
-        Vehiculo v;
         do{
             opcion = menu_vehiculos.show();
             switch (opcion){
@@ -62,8 +61,12 @@ public class GestionVehiculos {
                 case 4:
                     consultaVehiculo();
                     break;
-                case 5: System.out.println("Aumentar stock"); break;
-                case 6: System.out.println("Mostrar todos los coches en una sección"); break;
+                case 5:
+                    aumentarStock();
+                    break;
+                case 6:
+                    cochePorSeccion();
+                    break;
                 default:
                     // no hacer nada
             }
@@ -88,8 +91,6 @@ public class GestionVehiculos {
         System.out.println("========================================================");
         System.out.println("Elije la sección en el que irá el vehículo");
         vehiculo.setSeccion( gestionSecciones.eligeSeccion() );
-        System.out.println("========================================================");
-
         System.out.println("========================================================");
         System.out.println("Alta de un vehículo");
         System.out.println("--------------------------------------------------------");
@@ -124,23 +125,35 @@ public class GestionVehiculos {
         MyInput.waitForIntro();
     }
 
-    public Vehiculo eligeVehiculo(){
-        List<String> marcaModelo = new ArrayList<>();
+    public Vehiculo eligeVehiculo( boolean validarStock ){
+        List<String> marcaModeloStock = new ArrayList<>();
         for (Vehiculo v2 : c.getArrayVehiculos()){
-            marcaModelo.add( v2.getMarca() + " - " + v2.getModelo());
+            marcaModeloStock.add( v2.getMarca() + " - " + v2.getModelo() + " (" + v2.getStock() + ")" );
         }
-        if (marcaModelo.size() == 1){
-            System.out.println("Como solo hay un coche procede a modificar los datos de este...");
+        if (marcaModeloStock.size() == 1){
+            System.out.println("Como solo hay un coche se selecciona automáticamente...");
             return c.getArrayVehiculos().get(0);
         }
         else {
             Menu menu_Vehiculos = new Menu("Lista de vehículos",
-                    marcaModelo.toArray(new String[0]));
+                    marcaModeloStock.toArray(new String[0]));
             int opcion = menu_Vehiculos.show();
             if (opcion == 0)
                 return null;
-            else
-                return c.getArrayVehiculos().get(opcion - 1);
+            else{
+                if( validarStock ){
+                    if(c.getArrayVehiculos().get(opcion - 1).getStock() <= 0){
+                        System.out.println("No quedan existencias de este modelo, elige otro o cancela");
+                        return eligeVehiculo( validarStock );
+                    }
+                    else{
+                        return c.getArrayVehiculos().get(opcion - 1);
+                    }
+                }
+                else{
+                    return c.getArrayVehiculos().get(opcion - 1);
+                }
+            }
         }
 
     }
@@ -148,7 +161,7 @@ public class GestionVehiculos {
     private void modVehiculo(){
         do{
             System.out.println("Escribe el modelo del coche que quieres modificar");
-            Vehiculo vehiculo = eligeVehiculo();
+            Vehiculo vehiculo = eligeVehiculo(false);
             // pendiente ver que hacemos con la seccion
             vehiculo.setMarca( MyInput.modString( "Nueva marca del vehiculo", vehiculo.getMarca() ) );
             vehiculo.setModelo( MyInput.modString( "Nuevo modelo del vehiculo", vehiculo.getModelo() ) );
@@ -161,6 +174,26 @@ public class GestionVehiculos {
             showVehiculo(vehiculo);
         }while(MyInput.yesNoQuestion("¿Quieres modificar los datos de otro vehículo?"));
 
+    }
+
+    public void aumentarStock(){
+        System.out.println("Escribe el modelo del coche que quieres modificar");
+        Vehiculo vehiculo = eligeVehiculo(false);
+        vehiculo.setStock(MyInput.modInt("stock actual " , vehiculo.getStock() ) );
+    }
+
+    public void cochePorSeccion(){
+        List<Vehiculo> vehiculos = c.getArrayVehiculos();
+        List<Seccion> secciones = c.getArraySecciones();
+        for (Seccion s : secciones){
+            System.out.println();
+            System.out.println(s.getID());
+            for (Vehiculo v : vehiculos){
+                if (v.getSeccion().equals(s)){
+                    showVehiculo(v);
+                }
+            }
+        }
     }
 
     public GestionSecciones getSecciones() {
