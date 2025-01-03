@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1034d7fe-7dc4-492b-b83a-7b3bf2169b1f" name="Changes" comment="Creación de Mejora, Tapicería, Llantas, GPS y Calefacción. Falta implementación de agregarMejoras en vehículos">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PracticaFinal.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ES/MyInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/GestionSecciones.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/GestionVehiculos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/GestionVentas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Seccion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Vehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Vendible.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modelo/Venta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/modelo/GestionClientesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Concesionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Concesionario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/GestionClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/GestionClientes.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/slunamart/POO_PracticaFinal&quot;,
+    &quot;accountId&quot;: &quot;3447e4d3-2115-4695-a751-1638f65b33c8&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2qoNQbA1UaEwqHnNByNktOZ6CXR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.GestionClientesTest.anadirCliente.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.modelo in PracticaFinal.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;herre&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/Mi unidad/SEGUNDO/Primer cuatri/POO - Programación Orientada a Objetos/PracticaFinal&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;G:/Mi unidad/SEGUNDO/Primer cuatri/POO - Programación Orientada a Objetos/PracticaFinal/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="modelo" />
+      <recent name="Tests" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="modelo in PracticaFinal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PracticaFinal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="modelo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="modelo" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.modelo in PracticaFinal" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1034d7fe-7dc4-492b-b83a-7b3bf2169b1f" name="Changes" comment="" />
+      <created>1735324955704</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1735324955704</updated>
+      <workItem from="1735324956974" duration="2614000" />
+      <workItem from="1735385450854" duration="26000" />
+      <workItem from="1735385952718" duration="2362000" />
+      <workItem from="1735469161238" duration="268000" />
+      <workItem from="1735554749953" duration="10187000" />
+      <workItem from="1735570405665" duration="612000" />
+      <workItem from="1735598840459" duration="3827000" />
+      <workItem from="1735605172424" duration="11876000" />
+      <workItem from="1735656840286" duration="504000" />
+      <workItem from="1735748066226" duration="594000" />
+      <workItem from="1735816161112" duration="8484000" />
+      <workItem from="1735836706504" duration="207000" />
+      <workItem from="1735897166345" duration="4009000" />
+      <workItem from="1735918197074" duration="1128000" />
+    </task>
+    <task id="LOCAL-00001" summary="Test commit">
+      <option name="closed" value="true" />
+      <created>1735570879492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1735570879492</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Test commit">
+      <option name="closed" value="true" />
+      <created>1735602213866</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735602213866</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ampliacion de codigo">
+      <option name="closed" value="true" />
+      <created>1735608535294</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735608535294</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ampliacion de codigo">
+      <option name="closed" value="true" />
+      <created>1735608582784</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735608582784</updated>
+    </task>
+    <task id="LOCAL-00005" summary="guardado medianoche previo a acabar batería">
+      <option name="closed" value="true" />
+      <created>1735608873845</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1735608873845</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Concesionario: agregar funciones específicas para gestionClientes, GestionClientes: desarrollo parcial del menú.">
+      <option name="closed" value="true" />
+      <created>1735642888664</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1735642888664</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Cambio de nombre en función &quot;isDeseaInfo&quot; a &quot;getDeseaInfo&quot;">
+      <option name="closed" value="true" />
+      <created>1735649780362</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1735649780362</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Ampliación de código, adición de consultaCliente y showCliente, con los cambios necesarios en Concesionario.">
+      <option name="closed" value="true" />
+      <created>1735650161667</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1735650161667</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Ampliación de código. Supuestamente terminada, falta test.">
+      <option name="closed" value="true" />
+      <created>1735651744209</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1735651744209</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Creación de Mejora, Tapicería, Llantas, GPS y Calefacción. Falta implementación de agregarMejoras en vehículos">
+      <option name="closed" value="true" />
+      <created>1735902909979</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1735902909979</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test commit" />
+    <MESSAGE value="ampliacion de codigo" />
+    <MESSAGE value="guardado medianoche previo a acabar batería" />
+    <MESSAGE value="Concesionario: agregar funciones específicas para gestionClientes, GestionClientes: desarrollo parcial del menú." />
+    <MESSAGE value="Cambio de nombre en función &quot;isDeseaInfo&quot; a &quot;getDeseaInfo&quot;" />
+    <MESSAGE value="Ampliación de código, adición de consultaCliente y showCliente, con los cambios necesarios en Concesionario." />
+    <MESSAGE value="Ampliación de código. Supuestamente terminada, falta test." />
+    <MESSAGE value="Creación de Mejora, Tapicería, Llantas, GPS y Calefacción. Falta implementación de agregarMejoras en vehículos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creación de Mejora, Tapicería, Llantas, GPS y Calefacción. Falta implementación de agregarMejoras en vehículos" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
