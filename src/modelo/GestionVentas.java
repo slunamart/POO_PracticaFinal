@@ -107,7 +107,7 @@ public class GestionVentas {
     public void altaVenta(){
         Venta venta = new Venta();
         System.out.println("========================================================");
-        System.out.println("Elije el cliente que está haciendo la compra");
+        System.out.println("Elige el cliente que está haciendo la compra");
         venta.setCliente( gestionClientes.eligeCliente() );
         if (venta.getCliente() == null){return;}
         System.out.println("========================================================");
@@ -116,6 +116,44 @@ public class GestionVentas {
         venta.setVehiculo( gestionVehiculos.eligeVehiculo(true) );
         if (venta.getVehiculo() == null){return;}
         venta.getVehiculo().updateStock(-1);
+        System.out.println("========================================================");
+        if(MyInput.yesNoQuestion("¿Desea aplicar alguna mejora? [Y/N]") == true){
+            Menu menu_mejoras = new Menu("Menú de mejoras",
+                    new String[]{
+                            "Tapicería de cuero.",
+                            "GPS (Sistema de geolocalización y asistencia en ruta",
+                            "Calefacción en los asientos y volante.",
+                            "Llantas de aleación"});
+
+            int opcion;
+
+            do{
+                opcion = menu_mejoras.show();
+                switch (opcion){
+                    case 1:
+                        //addMejora(new Tapiceria());
+                        System.out.println("Mejora de *TAPICERÍA DE CUERO* aplicada.");
+                        break;
+                    case 2:
+                        //addMejora(new GPS());
+                        System.out.println("Mejora de *GPS* aplicada.");
+                        break;
+                    case 3:
+                        //addMejora(new Calefaccion);
+                        System.out.println("Mejora de *CALEFACCIÓN* aplicada.");
+                        break;
+                    case 4:
+                        //addMejora(new Llantas);
+                        System.out.println("Mejora de *LLANTAS* aplicada.");
+                        break;
+                    default:
+
+                }
+
+            }while(opcion != 0);
+        }
+
+
         System.out.println("========================================================");
         venta.setMatricula(c.crearMatricula());
         System.out.println("Al coche se le ha asignado la matrícula: " + venta.getMatricula());

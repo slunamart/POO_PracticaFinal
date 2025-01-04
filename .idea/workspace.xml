@@ -4,31 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1034d7fe-7dc4-492b-b83a-7b3bf2169b1f" name="Changes" comment="Creación de Mejora, Tapicería, Llantas, GPS y Calefacción. Falta implementación de agregarMejoras en vehículos">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PracticaFinal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ES/MyInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/GestionSecciones.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/GestionVehiculos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/GestionVentas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Seccion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Vehiculo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Vendible.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modelo/Venta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/modelo/GestionClientesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/Concesionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Concesionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modelo/GestionClientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/GestionClientes.java" afterDir="false" />
+    <list default="true" id="1034d7fe-7dc4-492b-b83a-7b3bf2169b1f" name="Changes" comment="Actualización de código previa a implementación de añadir mejoras a una venta.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menus/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/GestionVentas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/GestionVentas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modelo/Vehiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/modelo/Vehiculo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +140,8 @@
       <workItem from="1735816161112" duration="8484000" />
       <workItem from="1735836706504" duration="207000" />
       <workItem from="1735897166345" duration="4009000" />
-      <workItem from="1735918197074" duration="1128000" />
+      <workItem from="1735918197074" duration="3405000" />
+      <workItem from="1735987710236" duration="1883000" />
     </task>
     <task id="LOCAL-00001" summary="Test commit">
       <option name="closed" value="true" />
@@ -242,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735902909979</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Actualización de código previa a implementación de añadir mejoras a una venta.">
+      <option name="closed" value="true" />
+      <created>1735919386917</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1735919386917</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +257,8 @@
     <MESSAGE value="Ampliación de código, adición de consultaCliente y showCliente, con los cambios necesarios en Concesionario." />
     <MESSAGE value="Ampliación de código. Supuestamente terminada, falta test." />
     <MESSAGE value="Creación de Mejora, Tapicería, Llantas, GPS y Calefacción. Falta implementación de agregarMejoras en vehículos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creación de Mejora, Tapicería, Llantas, GPS y Calefacción. Falta implementación de agregarMejoras en vehículos" />
+    <MESSAGE value="Actualización de código previa a implementación de añadir mejoras a una venta." />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualización de código previa a implementación de añadir mejoras a una venta." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

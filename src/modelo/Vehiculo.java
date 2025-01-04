@@ -2,6 +2,8 @@ package modelo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vehiculo implements Serializable {
 
@@ -12,6 +14,7 @@ public class Vehiculo implements Serializable {
     private String anioFabric;
     private BigDecimal precioBase;
     private int stock;
+    private List<Mejora> mejoras;
 
     public Vehiculo(){
         this.seccion = null;
@@ -20,6 +23,7 @@ public class Vehiculo implements Serializable {
         this.anioFabric = "";
         this.precioBase = BigDecimal.ZERO;
         this.stock = 0;
+        this.mejoras = new ArrayList<Mejora>();
     }
 
     public Vehiculo(Seccion seccion,
@@ -34,6 +38,7 @@ public class Vehiculo implements Serializable {
         this.anioFabric = anioFabric;
         this.precioBase = precioBase;
         this.stock = stock;
+        this.mejoras = new ArrayList<Mejora>();
     }
 
     //vehiculo como unidad
@@ -45,7 +50,7 @@ public class Vehiculo implements Serializable {
         anioFabric = v.anioFabric;
         precioBase = v.precioBase;
         stock = 1;//para indicar que es una unica unidad
-        //mejoras
+        mejoras = v.mejoras;
     }
 
     public Seccion getSeccion() {
@@ -101,6 +106,10 @@ public class Vehiculo implements Serializable {
     }
     public void updateStock(int qtty){
         this.stock += qtty;
+    }
+
+    public void addMejora(Mejora mejora){
+        this.mejoras.add(mejora);
     }
 
     @Override

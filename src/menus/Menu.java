@@ -30,7 +30,7 @@ public class Menu {
             System.out.print("Escoja una opción: ");
             opcionNumber = MyInput.readInt();
             if( !this.opcionEsValida(opcionNumber)){
-                System.out.println("opcion incorrecta");
+                System.out.println("Opción incorrecta");
             }
         }while( !this.opcionEsValida( opcionNumber ) );
         return opcionNumber;
