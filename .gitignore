@@ -25,12 +25,12 @@ replay_pid*
 
 # intellij files are ignored
 .idea/
-#*.iml
+*.iml
 
 
 # fichero de serialización
-#concesionario_produccion.txt
-#concesionario.txt
-#fichero_concesionario_produccion.txt
+concesionario_produccion.txt
+concesionario.txt
+fichero_concesionario_produccion.txt
 
 
