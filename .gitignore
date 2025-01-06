@@ -25,3 +25,6 @@ replay_pid*
 
 # intellij files are ignored
 .idea/
+
+# fichero de serialización
+concesionario.txt
