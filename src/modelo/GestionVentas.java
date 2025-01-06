@@ -131,7 +131,7 @@ public class GestionVentas {
                 opcion = menu_mejoras.show();
                 switch (opcion){
                     case 1:
-                        //addMejora(new Tapiceria());
+                        /v.addMejora(new Tapiceria());
                         System.out.println("Mejora de *TAPICERÍA DE CUERO* aplicada.");
                         break;
                     case 2:
@@ -147,7 +147,6 @@ public class GestionVentas {
                         System.out.println("Mejora de *LLANTAS* aplicada.");
                         break;
                     default:
-
                 }
 
             }while(opcion != 0);
