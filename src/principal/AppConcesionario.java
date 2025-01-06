@@ -32,10 +32,10 @@ public class AppConcesionario {
         Concesionario c = deserializar(nombreFichero);
 
         Menu principal = new Menu( "Menú Principal",
-                new String[]{ "Secciones",
-                        "Mantenimiento del parque de vehículos",
-                        "Mantenimiento de clientes",
-                        "Ventas"} );
+                            new String[]{ "Secciones",
+                                          "Mantenimiento del parque de vehículos",
+                                          "Mantenimiento de clientes",
+                                          "Ventas"} );
 
         int opcion = -1;
         GestionSecciones gs = new GestionSecciones(c);
