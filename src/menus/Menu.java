@@ -17,26 +17,22 @@ public class Menu {
     }
 
     public int show(){
-        System.out.println("=========================================================");
         System.out.println( "  " + titulo );
-        System.out.println("---------------------------------------------------------");
-
         System.out.println();
 
         for(int i = 0; i<opciones.size(); i++){
             System.out.println( i+1 + ". " + opciones.get(i) );
         }
-        
+
         System.out.println("0. Salir del " + titulo);
         int opcionNumber;
         do {
             System.out.print("Escoja una opción: ");
             opcionNumber = MyInput.readInt();
             if( !this.opcionEsValida(opcionNumber)){
-                System.out.println("opcion incorrecta");
+                System.out.println("Opción incorrecta");
             }
         }while( !this.opcionEsValida( opcionNumber ) );
-        System.out.println("=========================================================");
         return opcionNumber;
     }
 

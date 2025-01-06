@@ -47,7 +47,7 @@ public class GestionSecciones {
             IDsecciones.add( s2.getID() );
         }
         Menu menu_secciones = new Menu("Menú secciones",
-                                      IDsecciones.toArray(new String[0] ) );
+                IDsecciones.toArray(new String[0] ) );
         int opcion = menu_secciones.show();
         if( opcion == 0 )
             return c.getSinSeccion();
