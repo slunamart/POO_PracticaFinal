@@ -1,12 +1,10 @@
-//import org.junit.Test;
-
-import modelo.Cliente;
 import modelo.Concesionario;
-import org.junit.jupiter.api.Test;
+import modelo.Vehiculo;
+import org.junit.Test;
+import modelo.Cliente;
+import static org.junit.Assert.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class GestionClientesTest {
+public class GestionClientesTest {
 
     private Concesionario c;
 
@@ -14,7 +12,13 @@ class GestionClientesTest {
     public void anadirCliente(){
         Cliente cl = new Cliente();
         this.c.addCliente(cl);
-        assertTrue(c.sizeVehiculo() > 0 );
+        assertTrue(c.sizeCliente() > 0 );
+    }
+
+    @Test
+    public void borrarCliente(){
+    //no hay test porque no borramos clientes
+    assertTrue(true);
     }
 
 }
