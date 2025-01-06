@@ -3,6 +3,7 @@ package modelo;
 import ES.MyInput;
 import menus.Menu;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class GestionSecciones {
                     bajaSeccion();
                     break;
                 case 3: // modificacion de una seccion
-
+                    modSeccion();
                     break;
                 case 4: // consulta de secciones disponibles
                     mostrarSecciones();
@@ -40,6 +41,13 @@ public class GestionSecciones {
             }
         }
     }
+
+    public void showSeccion(Seccion s){
+        System.out.println("--------------------------------------------------------");
+        System.out.println("ID: "+ s.getID() );
+        System.out.println("Descripción: " + s.getDescripcion() );
+    }
+
 
     public Seccion eligeSeccion(){
         List<String> IDsecciones = new ArrayList<>();
@@ -94,6 +102,17 @@ public class GestionSecciones {
         }
         System.out.println("=======================================================");
         MyInput.waitForIntro();
+    }
+
+    private void modSeccion(){
+        do{
+            System.out.println("Elige la sección a modificar");
+            Seccion seccion = eligeSeccion();
+            seccion.setID(MyInput.modString("Nuevo ID", seccion.getID() ) );
+            seccion.setDescripcion(MyInput.modString("Nueva descripción", seccion.getDescripcion() ) );
+            System.out.println("Nuevos datos del vehículo");
+            showSeccion(seccion);
+        }while(MyInput.yesNoQuestion("¿Quieres modificar los datos de otra sección?"));
     }
 
 }

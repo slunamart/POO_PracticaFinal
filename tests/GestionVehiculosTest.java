@@ -1,10 +1,11 @@
+import ES.MyInput;
 import modelo.Concesionario;
+import modelo.Vehiculo;
 import org.junit.Before;
 import org.junit.Test;
-import modelo.Cliente;
 import static org.junit.Assert.*;
 
-public class GestionClientesTest {
+public class GestionVehiculosTest {
 
     private Concesionario c;
 
@@ -12,6 +13,7 @@ public class GestionClientesTest {
     public void before(){
         this.c = new Concesionario();
     }
+
 
 
 

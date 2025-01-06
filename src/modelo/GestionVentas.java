@@ -126,12 +126,12 @@ public class GestionVentas {
                             "Llantas de aleación"});
 
             int opcion;
-
+            //Vehiculo v = new Vehiculo();
             do{
                 opcion = menu_mejoras.show();
                 switch (opcion){
                     case 1:
-                        /v.addMejora(new Tapiceria());
+                        //v.addMejora(new Tapiceria());
                         System.out.println("Mejora de *TAPICERÍA DE CUERO* aplicada.");
                         break;
                     case 2:

@@ -162,7 +162,10 @@ public class GestionVehiculos {
         do{
             System.out.println("Escribe el modelo del coche que quieres modificar");
             Vehiculo vehiculo = eligeVehiculo(false);
-            // pendiente ver que hacemos con la seccion
+            System.out.println();
+            System.out.println("==========================================================");
+            System.out.println("Sección actual: " + vehiculo.getSeccion().getID() );
+            vehiculo.setSeccion(gestionSecciones.eligeSeccion() );
             vehiculo.setMarca( MyInput.modString( "Nueva marca del vehiculo", vehiculo.getMarca() ) );
             vehiculo.setModelo( MyInput.modString( "Nuevo modelo del vehiculo", vehiculo.getModelo() ) );
             vehiculo.setAnioFabric( MyInput.modString( "Nuevo año de fabricación", vehiculo.getAnioFabric() ) );
