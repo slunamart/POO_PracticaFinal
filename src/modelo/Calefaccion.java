@@ -10,9 +10,9 @@ import java.math.BigDecimal;
  * @author Javier Herrería Martín
  */
 public class Calefaccion implements Mejora{
-    private String nombre;
-    private BigDecimal precio;
-    private BigDecimal incremento;
+    private final String nombre;
+    private final BigDecimal precio;
+    private final BigDecimal incremento;
 
 
     /**

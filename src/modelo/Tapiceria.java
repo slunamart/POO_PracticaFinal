@@ -6,16 +6,15 @@ import java.math.BigDecimal;
  * Clase que representa una mejora de tapicería de cuero para un vehículo.
  * Implementa la interfaz {@code Mejora}, proporcionando atributos como
  * el precio y el incremento asociado con esta mejora.
- *
  * Mejora la estética y la comodidad del interior del vehículo.
  *
  * @author Santiago Luna Martínez
  * @author Javier Herrería Martín
  */
 public class Tapiceria implements Mejora{
-    private String nombre;
-    private BigDecimal precio;
-    private BigDecimal incremento;
+    private final String nombre;
+    private final BigDecimal precio;
+    private final BigDecimal incremento;
 
     /**
      * Constructor de la clase Tapiceria.

@@ -1,7 +1,7 @@
 package modelo;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
+//import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,6 @@ import java.util.List;
  * Clase que representa un vehículo en el concesionario.
  * Contiene información como marca, modelo, año de fabricación, precio base, stock,
  * y las mejoras aplicadas al vehículo.
- *
  * Permite gestionar las propiedades del vehículo y aplicar mejoras específicas.
  *
  * @author Santiago Luna Martínez
@@ -25,7 +24,7 @@ public class Vehiculo implements Serializable {
     private String anioFabric;
     private BigDecimal precioBase;
     private int stock;
-    private ArrayList<Mejora> mejoras;
+    private final ArrayList<Mejora> mejoras;
 
     /**
      * Constructor por defecto para la clase Vehiculo.
@@ -38,7 +37,7 @@ public class Vehiculo implements Serializable {
         this.anioFabric = "";
         this.precioBase = BigDecimal.ZERO;
         this.stock = 0;
-        this.mejoras = new ArrayList<Mejora>();
+        this.mejoras = new ArrayList<>();
     }
 
     /**
@@ -126,10 +125,6 @@ public class Vehiculo implements Serializable {
         this.stock = stock;
     }
 
-    public void updateStock(){
-        this.stock += 1;
-    }
-
     /**
      * Actualiza el stock del vehículo sumando o restando una cantidad específica.
      * @param qtty Cantidad a ajustar (puede ser negativa para restar).
@@ -138,7 +133,7 @@ public class Vehiculo implements Serializable {
         this.stock += qtty;
     }
 
-    public List getMejoras(){
+    public List<Mejora> getMejoras(){
         return mejoras;
     }
 

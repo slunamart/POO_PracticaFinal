@@ -14,12 +14,13 @@ import java.util.List;
 public class Concesionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    //los Lists son final porque (por ahora) no se reasignarán
     private final Seccion noSeccion;
-    private List<Seccion> secciones;
-    private List<Cliente> clientes;
-    private List<Vehiculo> vehiculos;
-    private List<Venta> ventas;
-    private List<String> matriculas;
+    private final List<Seccion> secciones;
+    private final List<Cliente> clientes;
+    private final List<Vehiculo> vehiculos;
+    private final List<Venta> ventas;
+    private final List<String> matriculas;
 
 
     /**

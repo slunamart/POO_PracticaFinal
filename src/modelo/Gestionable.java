@@ -5,12 +5,10 @@ package modelo;
  * Es utilizada para estandarizar las acciones comunes en módulos de gestión como
  * clientes, vehículos, secciones, y ventas.
  *
- * @param <T> Tipo de objeto que será gestionado.
- *
  * @author Santiago Luna Martínez
  * @author Javier Herrería Martín
  */
-public interface Gestionable<T> {
+public interface Gestionable {
     /**
      * Método para dar de alta un nuevo elemento en el sistema.
      * Debe implementarse para agregar un nuevo objeto de tipo {@code T}.

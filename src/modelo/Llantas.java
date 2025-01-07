@@ -5,16 +5,15 @@ import java.math.BigDecimal;
 /**
  * Clase que representa una mejora de llantas de aleación para un vehículo.
  * Implementa la interfaz {@code Mejora}, añadiendo atributos como el precio y el incremento.
- *
  * Mejora la estética y el rendimiento del vehículo.
  *
  * @author Santiago Luna Martínez
  * @author Javier Herrería Martín
  */
 public  class Llantas implements Mejora{
-    private String nombre;
-    private BigDecimal precio;
-    private BigDecimal incremento;
+    private final String nombre;
+    private final BigDecimal precio;
+    private final BigDecimal incremento;
 
     /**
      * Constructor de la clase Llantas.

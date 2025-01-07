@@ -162,7 +162,7 @@ public class GestionClientes implements  Gestionable{
 
     /**
      * Muestra la información completa de un cliente.
-     * @param cliente Cliente cuya información será mostrada.
+     * @param cl Cliente cuya información será mostrada.
      */
     public void showCliente(Cliente cl){
         System.out.println("--------------------------------------------------------");

@@ -5,7 +5,6 @@ import java.io.Serializable;
 /**
  * Clase que representa una venta realizada en el concesionario.
  * Incluye información sobre el cliente, el vehículo vendido y la matrícula asignada.
- *
  * Permite gestionar la asociación de un cliente con un vehículo durante una transacción específica.
  *
  * @author Santiago Luna Martínez

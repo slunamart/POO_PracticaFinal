@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * Clase para gestionar el módulo de ventas en un concesionario.
  * Permite realizar altas, bajas, modificaciones y consultas relacionadas con ventas.
- *
  * Gestiona las interacciones entre clientes, vehículos y el concesionario en general.
  *
  * @author Santiago Luna Martínez
@@ -212,6 +211,8 @@ public class GestionVentas implements Gestionable{
         MyInput.waitForIntro();
     }
 
+    //TODO ver que pasa con el parámetro sin usar
+    // comprobar que al asignar una matrícula comprueba que no se repite
     /**
      * Permite modificar los datos de una venta existente.
      */

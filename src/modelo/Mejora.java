@@ -6,7 +6,6 @@ import java.math.BigDecimal;
  * Interfaz que define el comportamiento de una mejora para un vehículo.
  * Las clases que implementan esta interfaz deben proporcionar detalles
  * como el nombre, el incremento de precio y el costo total de la mejora.
- *
  * Ejemplos de mejoras incluyen GPS, Llantas de aleación y Tapicería.
  *
  * @author Santiago Luna Martínez

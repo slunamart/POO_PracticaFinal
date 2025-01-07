@@ -5,7 +5,6 @@ import java.io.Serializable;
 /**
  * Clase que representa una sección dentro del concesionario.
  * Agrupa vehículos según características específicas como SUVs o utilitarios.
- *
  * Cada sección tiene un identificador único y una descripción.
  *
  * @author Santiago Luna Martínez

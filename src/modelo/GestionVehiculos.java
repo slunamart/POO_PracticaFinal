@@ -10,7 +10,6 @@ import java.util.List;
 /**
  * Clase que gestiona las operaciones relacionadas con los vehículos en un concesionario.
  * Permite realizar altas, bajas, modificaciones, consultas y otras operaciones específicas con vehículos.
- *
  * Gestiona los vehículos en relación con las secciones del concesionario.
  *
  * @author Santiago Luna Martínez
@@ -185,7 +184,7 @@ public class GestionVehiculos implements Gestionable{
                 if( validarStock ){
                     if(c.getArrayVehiculos().get(opcion - 1).getStock() <= 0){
                         System.out.println("No quedan existencias de este modelo, elige otro o cancela");
-                        return elige( validarStock );
+                        return elige( true ); //mantenemos la validación de stock al reentrar al menú
                     }
                     else{
                         return c.getArrayVehiculos().get(opcion - 1);

@@ -5,16 +5,15 @@ import java.math.BigDecimal;
 /**
  * Clase que representa una mejora de sistema GPS para un vehículo.
  * Implementa la interfaz {@code Mejora}, añadiendo funcionalidad y atributos específicos.
- *
  * Mejora la experiencia de navegación en los vehículos.
  *
  * @author Santiago Luna Martínez
  * @author Javier Herrería Martín
  */
 public class GPS implements Mejora{
-    private String nombre;
-    private BigDecimal precio;
-    private BigDecimal incremento;
+    private final String nombre;
+    private final BigDecimal precio;
+    private final BigDecimal incremento;
 
     /**
      * Constructor de la clase GPS.
