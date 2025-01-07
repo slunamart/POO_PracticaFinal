@@ -26,7 +26,7 @@ public class Concesionario implements Serializable {
      * Constructor que inicializa el concesionario con listas vacías.
      */
     public Concesionario (){
-        noSeccion = new Seccion( "Sin Sección", "" );
+        noSeccion = new Seccion( "Sin Sección", "No añadido a ninguna sección todavía" );
         this.secciones = new ArrayList<>();
         this.clientes = new ArrayList<>();
         this.vehiculos = new ArrayList<>();
@@ -64,6 +64,20 @@ public class Concesionario implements Serializable {
      */
     public void addVehiculo(Vehiculo v){
         this.vehiculos.add(v);
+    }
+
+    /**
+     * Busca un vehículo específico.
+     * @param s Vehículo a buscar.
+     * @return El vehículo encontrado o {@code null} si no existe.
+     */
+    public Seccion getSeccion(Seccion s){
+        for ( Seccion s2 : secciones){
+            if (s2.equals(s)){
+                return s2;
+            }
+        }
+        return getSinSeccion();
     }
 
     /**

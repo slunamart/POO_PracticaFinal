@@ -7,16 +7,29 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * Clase de prueba para verificar el correcto funcionamiento de las operaciones
+ * relacionadas con el concesionario, incluyendo la gestión de vehículos, secciones y clientes.
+ *
+ * @see Concesionario
+ */
 public class ConcesionarioTest {
 
     private Concesionario c;
 
+    /**
+     * Inicializa un concesionario vacío antes de cada prueba.
+     */
     @Before
     public void before(){
         this.c = new Concesionario();
     }
 
 
+    /**
+     * Verifica que la serialización y deserialización de un concesionario
+     * mantenga la integridad de los datos.
+     */
     @Test
     public void serializeTest(){
         Concesionario c = new Concesionario();
@@ -34,6 +47,9 @@ public class ConcesionarioTest {
         assertEquals( v, v2);
     }
 
+    /**
+     * Verifica que un vehículo puede ser añadido correctamente al concesionario.
+     */
     @Test
     public void anadirVehiculo(){
         Vehiculo v = new Vehiculo();
@@ -41,6 +57,9 @@ public class ConcesionarioTest {
         assertTrue(c.sizeVehiculo() > 0 );
     }
 
+    /**
+     * Verifica que el stock de un vehículo puede ser reducido correctamente.
+     */
     @Test
     public void borrarVehiculo(){
         Vehiculo v = new Vehiculo();
@@ -55,6 +74,9 @@ public class ConcesionarioTest {
         assertEquals(v2.getStock(), 9);
     }
 
+    /**
+     * Verifica que una sección puede ser añadida correctamente al concesionario.
+     */
     @Test
     public void anadirSeccion(){
         Seccion s = new Seccion();
@@ -63,6 +85,9 @@ public class ConcesionarioTest {
         assertTrue(c.sizeSeccion() > 0 );
     }
 
+    /**
+     * Verifica que una sección puede ser eliminada correctamente del concesionario.
+     */
     @Test
     public void borrarSeccion(){
         Seccion s = new Seccion();
@@ -78,6 +103,9 @@ public class ConcesionarioTest {
         assertEquals(s2 , s);
     }
 
+    /**
+     * Verifica que un cliente puede ser añadido correctamente al concesionario.
+     */
     @Test
     public void anadirCliente(){
         Cliente cl = new Cliente();
@@ -85,6 +113,9 @@ public class ConcesionarioTest {
         assertTrue(c.sizeCliente() > 0 );
     }
 
+    /**
+     * Esta prueba está pendiente de desarrollo, ya que actualmente no se implementa la eliminación de clientes.
+     */
     @Test
     public void borrarCliente(){
         //no hay test porque no borramos clientes
