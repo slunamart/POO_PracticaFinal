@@ -3,10 +3,11 @@ package modelo;
 import ES.MyInput;
 import menus.Menu;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestionSecciones implements  Gestionable{
+public class GestionSecciones {
 
     private final Concesionario c;
 
@@ -14,7 +15,6 @@ public class GestionSecciones implements  Gestionable{
         this.c = c;
     }
 
-    @Override
     public void showMenu(){
         Menu secciones = new Menu( "Menú Secciones",
                 new String[]{ "Alta de una sección",
@@ -27,13 +27,13 @@ public class GestionSecciones implements  Gestionable{
             opcion = secciones.show();
             switch( opcion ){
                 case 1: // alta de una seccion
-                    alta();
+                    altaSeccion();
                     break;
                 case 2: // baja de una sección
-                    baja();
+                    bajaSeccion();
                     break;
                 case 3: // modificacion de una seccion
-
+                    modSeccion();
                     break;
                 case 4: // consulta de secciones disponibles
                     mostrarSecciones();
@@ -42,13 +42,13 @@ public class GestionSecciones implements  Gestionable{
         }
     }
 
-    public Seccion elige(){
+    public Seccion eligeSeccion(){
         List<String> IDsecciones = new ArrayList<>();
         for (Seccion s2 : c.getArraySecciones()){
             IDsecciones.add( s2.getID() );
         }
         Menu menu_secciones = new Menu("Menú secciones",
-                                      IDsecciones.toArray(new String[0] ) );
+                IDsecciones.toArray(new String[0] ) );
         int opcion = menu_secciones.show();
         if( opcion == 0 )
             return c.getSinSeccion();
@@ -58,8 +58,7 @@ public class GestionSecciones implements  Gestionable{
 
     }
 
-    @Override
-    public void alta(){
+    public void altaSeccion(){
         System.out.println("Alta de una seccion");
         Seccion seccion = new Seccion();
         System.out.println("El identificador de sección puede ser algo como");
@@ -69,8 +68,7 @@ public class GestionSecciones implements  Gestionable{
         this.c.addSeccion( seccion );
     }
 
-    @Override
-    public void baja(){
+    public void bajaSeccion(){
         System.out.println("Baja de una sección");
         Seccion seccion = new Seccion();
         seccion.setID(MyInput.readString("Di el nombre de la sección que quieres dar de baja") );
@@ -97,6 +95,17 @@ public class GestionSecciones implements  Gestionable{
         }
         System.out.println("=======================================================");
         MyInput.waitForIntro();
+    }
+
+    private void modSeccion(){
+        do{
+            System.out.println("Elige la sección a modificar");
+            Seccion seccion = eligeSeccion();
+            seccion.setID(MyInput.modString("Nuevo ID", seccion.getID() ) );
+            seccion.setDescripcion(MyInput.modString("Nueva descripción", seccion.getDescripcion() ) );
+            System.out.println("Nuevos datos del vehículo");
+            showSeccion(seccion);
+        }while(MyInput.yesNoQuestion("¿Quieres modificar los datos de otra sección?"));
     }
 
 }

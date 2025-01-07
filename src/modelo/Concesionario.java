@@ -49,6 +49,15 @@ public class Concesionario implements Serializable {
         return null;
     }
 
+    public Seccion getSeccion(Seccion s){
+        for ( Seccion s2 : secciones){
+            if (s2.equals(s)){
+                return s2;
+            }
+        }
+        return null;
+    }
+
     public boolean existeVehiculo(Vehiculo v){
         for ( Vehiculo v2 : vehiculos){
             if (v2.equals(v)){
