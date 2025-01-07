@@ -2,6 +2,15 @@ package modelo;
 
 import java.io.Serializable;
 
+/**
+ * Clase que representa una venta realizada en el concesionario.
+ * Incluye información sobre el cliente, el vehículo vendido y la matrícula asignada.
+ *
+ * Permite gestionar la asociación de un cliente con un vehículo durante una transacción específica.
+ *
+ * @author Santiago Luna Martínez
+ * @author Javier Herrería Martín
+ */
 public class Venta implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -9,15 +18,25 @@ public class Venta implements Serializable {
     private Cliente cliente;
     private String matricula;
 
+    /**
+     * Constructor por defecto para la clase Venta.
+     * Inicializa los atributos con valores predeterminados.
+     */
     public Venta(){
         this.vehiculo = null;
         this.cliente = null; //cambiar por el nobody
     }
 
+    /**
+     * Constructor que inicializa una venta con un cliente y un vehículo.
+     * @param v Vehículo asociado a la venta.
+     * @param cl Cliente asociado a la venta.
+     */
     public Venta(Vehiculo v, Cliente cl ){
         this.vehiculo = v;
         this.cliente = cl;
     }
+
 
     public Vehiculo getVehiculo() {
         return vehiculo;

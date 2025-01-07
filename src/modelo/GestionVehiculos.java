@@ -7,16 +7,34 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que gestiona las operaciones relacionadas con los vehículos en un concesionario.
+ * Permite realizar altas, bajas, modificaciones, consultas y otras operaciones específicas con vehículos.
+ *
+ * Gestiona los vehículos en relación con las secciones del concesionario.
+ *
+ * @author Santiago Luna Martínez
+ * @author Javier Herrería Martín
+ */
 public class GestionVehiculos implements Gestionable{
 
     private final Concesionario c;
     private GestionSecciones gestionSecciones;
 
 
+    /**
+     * Constructor de la clase GestionVehiculos.
+     * Inicializa la gestión con el concesionario asociado.
+     * @param c Concesionario donde se gestionarán los vehículos.
+     */
     public GestionVehiculos(Concesionario c){
         this.c = c;
     }
 
+    /**
+     * Muestra el menú de opciones relacionadas con la gestión de vehículos.
+     * Permite al usuario interactuar para realizar altas, bajas, modificaciones y consultas de vehículos.
+     */
     @Override
     public void showMenu() {
 
@@ -74,6 +92,10 @@ public class GestionVehiculos implements Gestionable{
         } while( opcion != 0 );
     }
 
+    /**
+     * Muestra la información detallada de un vehículo.
+     * @param v Vehículo cuya información será mostrada.
+     */
     public void showVehiculo(Vehiculo v){
         Seccion s = v.getSeccion();
         System.out.println("--------------------------------------------------------");
@@ -85,6 +107,10 @@ public class GestionVehiculos implements Gestionable{
         System.out.println("Stock: " + v.getStock());
     }
 
+    /**
+     * Da de alta un nuevo vehículo en el concesionario.
+     * Solicita al usuario los datos necesarios y los registra en el sistema.
+     */
     @Override
     public void alta(){
         Vehiculo vehiculo = new Vehiculo();
@@ -104,6 +130,10 @@ public class GestionVehiculos implements Gestionable{
         c.addVehiculo( vehiculo);
     }
 
+    /**
+     * Da de baja un vehículo del concesionario.
+     * Solicita al usuario el modelo del vehículo a eliminar y ajusta su stock.
+     */
     @Override
     public void baja(){
         System.out.println("Baja de un vehículo");
@@ -115,6 +145,9 @@ public class GestionVehiculos implements Gestionable{
         }
     }
 
+    /**
+     * Consulta y muestra la información de todos los vehículos registrados en el concesionario.
+     */
     private void consultaVehiculo(){
         if(c.getArrayVehiculos().isEmpty()) {
             System.out.println("No hay vehículos aún en este concesionario");
@@ -127,6 +160,12 @@ public class GestionVehiculos implements Gestionable{
         MyInput.waitForIntro();
     }
 
+    /**
+     * Permite al usuario seleccionar un vehículo de la lista disponible.
+     * Opcionalmente, puede validarse que el stock del vehículo sea mayor a cero.
+     * @param validarStock Indica si debe validarse el stock del vehículo.
+     * @return El vehículo seleccionado, o {@code null} si no se selecciona ningún vehículo.
+     */
     public Vehiculo elige(boolean validarStock ){
         List<String> marcaModeloStock = new ArrayList<>();
         for (Vehiculo v2 : c.getArrayVehiculos()){
@@ -160,6 +199,10 @@ public class GestionVehiculos implements Gestionable{
 
     }
 
+    /**
+     * Modifica los datos de un vehículo seleccionado por el usuario.
+     * Permite cambiar atributos como marca, modelo, año, precio y stock.
+     */
     private void modVehiculo(){
         do{
             System.out.println("Escribe el modelo del coche que quieres modificar");
@@ -178,12 +221,19 @@ public class GestionVehiculos implements Gestionable{
 
     }
 
+    /**
+     * Aumenta el stock de un vehículo específico.
+     * Solicita al usuario el modelo y el nuevo stock.
+     */
     public void aumentarStock(){
         System.out.println("Escribe el modelo del coche que quieres modificar");
         Vehiculo vehiculo = elige(false);
         vehiculo.setStock(MyInput.modInt("stock actual " , vehiculo.getStock() ) );
     }
 
+    /**
+     * Muestra todos los vehículos agrupados por sus respectivas secciones.
+     */
     public void cochePorSeccion(){
         List<Vehiculo> vehiculos = c.getArrayVehiculos();
         List<Seccion> secciones = c.getArraySecciones();
@@ -198,10 +248,15 @@ public class GestionVehiculos implements Gestionable{
         }
     }
 
+    // TODO si no se usa, quitar
     public GestionSecciones getSecciones() {
         return gestionSecciones;
     }
 
+    /**
+     * Configura el módulo de gestión de secciones para esta gestión de vehículos.
+     * @param gestionSecciones Gestión de secciones asociada.
+     */
     public void setSecciones(GestionSecciones gestionSecciones) {
         this.gestionSecciones = gestionSecciones;
     }

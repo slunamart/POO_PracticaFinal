@@ -2,6 +2,13 @@ package modelo;
 
 import java.io.Serializable;
 
+/**
+ * Clase que representa un cliente en el concesionario.
+ * Incluye información como DNI, nombre, apellidos, teléfono y preferencia de publicidad.
+ *
+ * @author Santiago Luna Martínez
+ * @author Javier Herrería Martín
+ */
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -11,6 +18,10 @@ public class Cliente implements Serializable {
     private String telefono;
     private boolean deseaInfo;
 
+    /**
+     * Constructor por defecto para la clase Cliente.
+     * Inicializa los atributos con valores por defecto.
+     */
     public Cliente(){
         this.DNI = "";
         this.nombre = "";
@@ -19,6 +30,12 @@ public class Cliente implements Serializable {
         this.deseaInfo = false;
     }
 
+    /**
+     * Constructor que inicializa un cliente con DNI, nombre y apellidos.
+     * @param DNI DNI del cliente.
+     * @param nombre Nombre del cliente.
+     * @param apellidos Apellidos del cliente.
+     */
     public Cliente( String DNI, String nombre, String apellidos ){
         this.DNI = DNI;
         this.nombre = nombre;
@@ -27,6 +44,14 @@ public class Cliente implements Serializable {
         this.deseaInfo = false;
     }
 
+    /**
+     * Constructor que inicializa un cliente con todos los atributos.
+     * @param DNI DNI del cliente.
+     * @param nombre Nombre del cliente.
+     * @param apellidos Apellidos del cliente.
+     * @param telefono Teléfono del cliente.
+     * @param deseaInfo Indica si el cliente desea recibir información publicitaria.
+     */
     public Cliente( String DNI, String nombre, String apellidos, String telefono, boolean deseaInfo ){
         this.DNI = DNI;
         this.nombre = nombre;

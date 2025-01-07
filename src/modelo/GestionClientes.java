@@ -6,15 +6,30 @@ import menus.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Clase que gestiona las operaciones relacionadas con los clientes de un concesionario.
+ * Permite realizar altas, bajas, consultas y mostrar información detallada de los clientes.
+ *
+ * @author Santiago Luna Martínez
+ * @author Javier Herrería Martín
+ */
 public class GestionClientes implements  Gestionable{
 
     private final Concesionario c;
 
+    /**
+     * Constructor de la clase GestionClientes.
+     * Inicializa la gestión con el concesionario asociado.
+     * @param c Concesionario donde se gestionarán los clientes.
+     */
     public GestionClientes(Concesionario c){
         this.c = c;
     }
 
+    /**
+     * Muestra el menú de opciones relacionadas con la gestión de clientes.
+     * Permite al usuario interactuar con el sistema para gestionar clientes.
+     */
     @Override
     public void showMenu() {
         if (this.c.sizeCliente() == 0){
@@ -60,6 +75,11 @@ public class GestionClientes implements  Gestionable{
         }while(opcion!=0);
     }
 
+    /**
+     * Permite seleccionar un cliente de la lista de clientes registrados.
+     * Muestra un menú con los nombres de los clientes.
+     * @return El cliente seleccionado.
+     */
     public Cliente elige(){
         List<String> clientes = new ArrayList<>();
         for (Cliente cl2 : c.getArrayClientes()){
@@ -78,6 +98,10 @@ public class GestionClientes implements  Gestionable{
 
     }
 
+    /**
+     * Da de alta un nuevo cliente en el concesionario.
+     * Solicita al usuario los datos necesarios y los registra si no hay conflictos de DNI.
+     */
     @Override
     public void alta(){
         Cliente cliente = new Cliente();
@@ -99,6 +123,10 @@ public class GestionClientes implements  Gestionable{
         c.addCliente(cliente);
     }
 
+    /**
+     * Da de baja un cliente del concesionario.
+     * Solicita al usuario el DNI del cliente a eliminar.
+     */
     @Override
     public void baja(){
         System.out.println("Baja de un cliente");
@@ -113,6 +141,10 @@ public class GestionClientes implements  Gestionable{
         }
     }
 
+    /**
+     * Consulta y muestra la información de un cliente por su DNI.
+     * Si no existe, notifica al usuario.
+     */
     private void consultaCliente() {
         if (c.getArrayClientes().isEmpty()) {
             System.out.println("Aún no hay clientes en el concesionario.");
@@ -128,6 +160,10 @@ public class GestionClientes implements  Gestionable{
         MyInput.waitForIntro();
     }
 
+    /**
+     * Muestra la información completa de un cliente.
+     * @param cliente Cliente cuya información será mostrada.
+     */
     public void showCliente(Cliente cl){
         System.out.println("--------------------------------------------------------");
         System.out.println("DNI: " + cl.getDNI());
@@ -141,6 +177,9 @@ public class GestionClientes implements  Gestionable{
         }
     }
 
+    /**
+     * Muestra la información de todos los clientes registrados.
+     */
     public void infoTodosClientes(){
         if (c.getArrayClientes().isEmpty()){
             System.out.println("Aún no hay clientes en el concesionario.");
@@ -151,6 +190,9 @@ public class GestionClientes implements  Gestionable{
         }
     }
 
+    /**
+     * Muestra información de los clientes interesados en recibir publicidad.
+     */
     public void infoClientesPublicidad(){
         if (c.getArrayClientes().isEmpty()){
             System.out.println("Aún no hay clientes en el concesionario.");

@@ -11,6 +11,12 @@ import java.util.ArrayList;
 public class MyInput {
     // Lee una cadena de caracteres desde el teclado
 
+    /**
+     * Solicita al usuario una cadena de texto con la posibilidad de asignar un valor por defecto.
+     * @param prompt Mensaje para solicitar la entrada del usuario.
+     * @param defaultValue Valor predeterminado si el usuario no introduce texto.
+     * @return La cadena introducida por el usuario o el valor predeterminado si la entrada está vacía.
+     */
     public static String modString( String prompt, String defaultValue ){
         String newValue = readString( prompt + "( " + defaultValue + " )" );
         if( newValue.isEmpty() )
@@ -39,10 +45,16 @@ public class MyInput {
         return string; }
 // Lee un dato tipo int  desde el teclado
 
+
     public static boolean yesNoQuestion(){
         return readString("?" ).equalsIgnoreCase( "s" );
     }
 
+    /**
+     * Muestra una pregunta al usuario que espera una respuesta afirmativa (s) o negativa.
+     * @param prompt Mensaje para la pregunta.
+     * @return true si la respuesta es "s", false en caso contrario.
+     */
     public static boolean yesNoQuestion(String prompt){
         return readString(prompt).equalsIgnoreCase("s");
     }
@@ -55,6 +67,12 @@ public class MyInput {
         readString("Pulse intro para continuar...");
     }
 
+    /**
+     * Solicita al usuario un número entero, con la posibilidad de asignar un valor predeterminado.
+     * @param prompt Mensaje para solicitar el número.
+     * @param defaultValue Valor predeterminado si el usuario no introduce un valor válido.
+     * @return El número entero introducido por el usuario o el valor predeterminado.
+     */
     public static int modInt( String prompt, int defaultValue ){
         String newValue = modString( prompt, Integer.toString(defaultValue) );
         if( newValue.isEmpty() ){

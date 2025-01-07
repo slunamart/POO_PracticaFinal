@@ -6,14 +6,30 @@ import menus.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que gestiona las operaciones relacionadas con las secciones de un concesionario.
+ * Permite realizar altas, bajas, consultas y seleccionar secciones disponibles.
+ *
+ * @author Santiago Luna Martínez
+ * @author Javier Herrería Martín
+ */
 public class GestionSecciones implements  Gestionable{
 
     private final Concesionario c;
 
+    /**
+     * Constructor de la clase GestionSecciones.
+     * Inicializa la gestión con el concesionario asociado.
+     * @param c Concesionario donde se gestionarán las secciones.
+     */
     public GestionSecciones( Concesionario c ){
         this.c = c;
     }
 
+    /**
+     * Muestra el menú de opciones relacionadas con la gestión de secciones.
+     * Permite al usuario interactuar para agregar, eliminar, modificar y consultar secciones.
+     */
     @Override
     public void showMenu(){
         Menu secciones = new Menu( "Menú Secciones",
@@ -42,6 +58,11 @@ public class GestionSecciones implements  Gestionable{
         }
     }
 
+    /**
+     * Permite al usuario seleccionar una sección de las disponibles en el concesionario.
+     * Si no se selecciona ninguna, retorna la sección predeterminada "Sin Sección".
+     * @return La sección seleccionada.
+     */
     public Seccion elige(){
         List<String> IDsecciones = new ArrayList<>();
         for (Seccion s2 : c.getArraySecciones()){
@@ -58,6 +79,10 @@ public class GestionSecciones implements  Gestionable{
 
     }
 
+    /**
+     * Da de alta una nueva sección en el concesionario.
+     * Solicita al usuario los datos necesarios para registrar una nueva sección.
+     */
     @Override
     public void alta(){
         System.out.println("Alta de una seccion");
@@ -69,6 +94,10 @@ public class GestionSecciones implements  Gestionable{
         this.c.addSeccion( seccion );
     }
 
+    /**
+     * Da de baja una sección del concesionario.
+     * Solicita al usuario el identificador de la sección a eliminar.
+     */
     @Override
     public void baja(){
         System.out.println("Baja de una sección");
@@ -83,6 +112,10 @@ public class GestionSecciones implements  Gestionable{
 
     }
 
+    /**
+     * Muestra todas las secciones disponibles en el concesionario.
+     * Incluye el nombre y la descripción de cada sección.
+     */
     public void mostrarSecciones(){
         if(c.getArraySecciones().isEmpty()) {
             System.out.println("No hay secciones aún en este concesionario");

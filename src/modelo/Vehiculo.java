@@ -6,6 +6,16 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que representa un vehículo en el concesionario.
+ * Contiene información como marca, modelo, año de fabricación, precio base, stock,
+ * y las mejoras aplicadas al vehículo.
+ *
+ * Permite gestionar las propiedades del vehículo y aplicar mejoras específicas.
+ *
+ * @author Santiago Luna Martínez
+ * @author Javier Herrería Martín
+ */
 public class Vehiculo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -17,6 +27,10 @@ public class Vehiculo implements Serializable {
     private int stock;
     private ArrayList<Mejora> mejoras;
 
+    /**
+     * Constructor por defecto para la clase Vehiculo.
+     * Inicializa los atributos con valores predeterminados.
+     */
     public Vehiculo(){
         this.seccion = null;
         this.marca = "";
@@ -27,6 +41,15 @@ public class Vehiculo implements Serializable {
         this.mejoras = new ArrayList<Mejora>();
     }
 
+    /**
+     * Constructor que inicializa un vehículo con parámetros específicos.
+     * @param seccion Sección del vehículo.
+     * @param marca Marca del vehículo.
+     * @param modelo Modelo del vehículo.
+     * @param anioFabric Año de fabricación del vehículo.
+     * @param precioBase Precio base del vehículo.
+     * @param stock Stock inicial del vehículo.
+     */
     public Vehiculo(Seccion seccion,
                     String marca,
                     String modelo,
@@ -106,6 +129,11 @@ public class Vehiculo implements Serializable {
     public void updateStock(){
         this.stock += 1;
     }
+
+    /**
+     * Actualiza el stock del vehículo sumando o restando una cantidad específica.
+     * @param qtty Cantidad a ajustar (puede ser negativa para restar).
+     */
     public void updateStock(int qtty){
         this.stock += qtty;
     }

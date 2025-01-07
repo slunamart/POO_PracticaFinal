@@ -4,6 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que representa un concesionario.
+ * Gestiona clientes, vehículos, secciones, ventas y matrículas.
+ *
+ * @author Santiago Luna Martínez
+ * @author Javier Herrería Martín
+ */
 public class Concesionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -15,6 +22,9 @@ public class Concesionario implements Serializable {
     private List<String> matriculas;
 
 
+    /**
+     * Constructor que inicializa el concesionario con listas vacías.
+     */
     public Concesionario (){
         noSeccion = new Seccion( "Sin Sección", "" );
         this.secciones = new ArrayList<>();
@@ -24,22 +34,43 @@ public class Concesionario implements Serializable {
         this.matriculas = new ArrayList<>();
     }
 
+    /**
+     * Obtiene la sección predeterminada.
+     * @return Sección predeterminada sin categoría específica.
+     */
     public Seccion getSinSeccion(){
         return this.noSeccion;
     }
 
+    /**
+     * Agrega una nueva sección al concesionario.
+     * @param s Sección a agregar.
+     */
     public void addSeccion( Seccion s ){
         this.secciones.add( s );
     }
 
+    /**
+     * Obtiene la cantidad de secciones en el concesionario.
+     * @return Número de secciones.
+     */
     public int sizeSeccion(){
         return this.secciones.size();
     }
 
+    /**
+     * Agrega un vehículo al concesionario.
+     * @param v Vehículo a agregar.
+     */
     public void addVehiculo(Vehiculo v){
         this.vehiculos.add(v);
     }
 
+    /**
+     * Busca un vehículo específico.
+     * @param v Vehículo a buscar.
+     * @return El vehículo encontrado o {@code null} si no existe.
+     */
     public Vehiculo getVehiculo(Vehiculo v){
         for ( Vehiculo v2 : vehiculos){
             if (v2.equals(v)){
@@ -49,6 +80,11 @@ public class Concesionario implements Serializable {
         return null;
     }
 
+    /**
+     * Verifica si un vehículo existe en el concesionario.
+     * @param v Vehículo a verificar.
+     * @return {@code true} si el vehículo existe, {@code false} en caso contrario.
+     */
     public boolean existeVehiculo(Vehiculo v){
         for ( Vehiculo v2 : vehiculos){
             if (v2.equals(v)){
@@ -58,6 +94,11 @@ public class Concesionario implements Serializable {
         return false;
     }
 
+    /**
+     * Reduce el stock de un vehículo específico.
+     * @param v Vehículo al que se le reducirá el stock.
+     * @param qtty Cantidad a reducir.
+     */
     public void rmVehiculo(Vehiculo v, int qtty){
         for ( Vehiculo v2 : vehiculos){
             if (v2.equals(v)){
@@ -66,10 +107,18 @@ public class Concesionario implements Serializable {
         }
     }
 
+    /**
+     * Elimina una sección específica del concesionario.
+     * @param s Sección a eliminar.
+     */
     public void rmSeccion(Seccion s){
         secciones.remove(s);
     }
 
+    /**
+     * Obtiene la cantidad de vehículos disponibles.
+     * @return Número de vehículos.
+     */
     public int sizeVehiculo(){
         return this.vehiculos.size();
     }
@@ -78,18 +127,34 @@ public class Concesionario implements Serializable {
         return this.ventas.size();
     }
 
+    /**
+     * Obtiene la lista de vehículos disponibles.
+     * @return Lista de vehículos.
+     */
     public List<Vehiculo> getArrayVehiculos(){
         return vehiculos;
     }
 
+    /**
+     * Obtiene la lista de secciones disponibles.
+     * @return Lista de secciones.
+     */
     public List<Seccion> getArraySecciones(){
         return secciones;
     }
 
+    /**
+     * Obtiene la lista de matrículas.
+     * @return Lista de matrículas.
+     */
     public List<String> getArrayMatriculas(){
         return matriculas;
     }
 
+    /**
+     * Obtiene la lista de ventas realizadas.
+     * @return Lista de ventas.
+     */
     public List<Venta> getArrayVentas(){
         return ventas;
     }
@@ -117,6 +182,10 @@ public class Concesionario implements Serializable {
         return false;
     }
 
+    /**
+     * Crea y agrega una nueva matrícula al sistema.
+     * @return Nueva matrícula generada.
+     */
     public String crearMatricula() {
         String nuevaMatricula;
         List<String> matriculasExistentes = getArrayMatriculas();
@@ -149,7 +218,6 @@ public class Concesionario implements Serializable {
         return String.format("%04d%s", num, letras);
     }
 
-    // Método auxiliar para incrementar las letras
     private String incrementarLetras(String letras) {
         char[] letrasArray = letras.toCharArray();
 
@@ -165,6 +233,11 @@ public class Concesionario implements Serializable {
         return new String(letrasArray);
     }
 
+    /**
+     * Busca un cliente por su DNI.
+     * @param dni DNI del cliente.
+     * @return Cliente encontrado o {@code null} si no existe.
+     */
     public Cliente buscarPorDNI(String dni) {
         for (Cliente cliente : clientes) {
             if (cliente.getDNI().equals(dni)) {
@@ -174,18 +247,34 @@ public class Concesionario implements Serializable {
         return null;
     }
 
+    /**
+     * Agrega un nuevo cliente al concesionario.
+     * @param cl Cliente a agregar.
+     */
     public void addCliente(Cliente cl){
         clientes.add(cl);
     }
 
+    /**
+     * Elimina un cliente del concesionario.
+     * @param cl Cliente a eliminar.
+     */
     public void rmCliente(Cliente cl){
         clientes.remove(cl);
     }
 
+    /**
+     * Agrega una venta al historial de ventas.
+     * @param v Venta a agregar.
+     */
     public void addVenta(Venta v){
         ventas.add(v);
     }
 
+    /**
+     * Obtiene la cantidad de clientes registrados.
+     * @return Número de clientes.
+     */
     public int sizeCliente(){
         return clientes.size();
     }

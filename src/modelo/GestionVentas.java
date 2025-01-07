@@ -6,6 +6,15 @@ import menus.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase para gestionar el módulo de ventas en un concesionario.
+ * Permite realizar altas, bajas, modificaciones y consultas relacionadas con ventas.
+ *
+ * Gestiona las interacciones entre clientes, vehículos y el concesionario en general.
+ *
+ * @author Santiago Luna Martínez
+ * @author Javier Herrería Martín
+ */
 public class GestionVentas implements Gestionable{
 
     private final Concesionario c;
@@ -15,10 +24,18 @@ public class GestionVentas implements Gestionable{
 
     private GestionSecciones gestionSecciones;
 
+    /**
+     * Constructor de la clase GestionVentas.
+     * @param c Concesionario asociado a las ventas.
+     */
     public GestionVentas(Concesionario c){
         this.c = c;
     }
 
+    /**
+     * Muestra el menú de opciones relacionadas con ventas.
+     * Permite realizar operaciones como vender, modificar o dar de baja ventas.
+     */
     @Override
     public void showMenu(){
 
@@ -75,6 +92,10 @@ public class GestionVentas implements Gestionable{
         }
     }
 
+    /**
+     * Muestra la información detallada de una venta específica.
+     * @param v Venta de la que se mostrará la información.
+     */
     public void showVenta(Venta v){
         System.out.println("--------------------------------------------------------");
         System.out.println("Vehículo: " + v.getVehiculo().getMarca() + " - " + v.getVehiculo().getModelo());
@@ -82,6 +103,10 @@ public class GestionVentas implements Gestionable{
         System.out.println("Matrícula: " + v.getMatricula());
     }
 
+    /**
+     * Permite al usuario seleccionar una venta de la lista de ventas disponibles.
+     * @return La venta seleccionada.
+     */
     public Venta elige(){
         List<String> historial = new ArrayList<>();
         for (Venta v2 : c.getArrayVentas()){
@@ -104,6 +129,9 @@ public class GestionVentas implements Gestionable{
 
     }
 
+    /**
+     * Crea una nueva venta en el sistema y la agrega al concesionario.
+     */
     @Override
     public void alta(){
         Venta venta = new Venta();
@@ -154,6 +182,9 @@ public class GestionVentas implements Gestionable{
         this.c.addVenta(venta);
     }
 
+    /**
+     * Elimina una venta existente del sistema.
+     */
     @Override
     public void baja(){
         System.out.println("Elige la venta a dar de baja");
@@ -162,6 +193,9 @@ public class GestionVentas implements Gestionable{
         System.out.println("========================================================");
     }
 
+    /**
+     * Muestra el historial de ventas realizadas en el concesionario.
+     */
     public void mostrarVentas(){
         if(c.getArraySecciones().isEmpty()) {
             System.out.println("Este concesionario no ha realizado ninguna venta todavía");
@@ -178,6 +212,9 @@ public class GestionVentas implements Gestionable{
         MyInput.waitForIntro();
     }
 
+    /**
+     * Permite modificar los datos de una venta existente.
+     */
     public void modVenta(){
         do{
             System.out.println("Elige la venta a modificar");
@@ -200,14 +237,26 @@ public class GestionVentas implements Gestionable{
         }while(MyInput.yesNoQuestion("¿Quieres modificar los datos de otra venta?"));
     }
 
+    /**
+     * Configura el módulo de gestión de clientes para este sistema de ventas.
+     * @param gestionClientes Gestión de clientes asociada.
+     */
     public void setGestionClientes(GestionClientes gestionClientes) {
         this.gestionClientes = gestionClientes;
     }
 
+    /**
+     * Configura el módulo de gestión de vehículos para este sistema de ventas.
+     * @param gestionVehiculos Gestión de vehículos asociada.
+     */
     public void setGestionVehiculos(GestionVehiculos gestionVehiculos) {
         this.gestionVehiculos = gestionVehiculos;
     }
 
+    /**
+     * Configura el módulo de gestión de secciones para este sistema de ventas.
+     * @param gestionSecciones Gestión de secciones asociada.
+     */
     public void setGestionSecciones(GestionSecciones gestionSecciones) {
         this.gestionSecciones = gestionSecciones;
     }
