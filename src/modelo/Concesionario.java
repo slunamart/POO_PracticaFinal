@@ -14,7 +14,6 @@ import java.util.List;
 public class Concesionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    //los Lists son final porque (por ahora) no se reasignarán
     private final Seccion noSeccion;
     private final List<Seccion> secciones;
     private final List<Cliente> clientes;

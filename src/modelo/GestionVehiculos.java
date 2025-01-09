@@ -74,7 +74,7 @@ public class GestionVehiculos implements Gestionable{
                     baja();
                     break;
                 case 3:
-                    modVehiculo();
+                    modificacion();
                     break;
                 case 4:
                     consultaVehiculo();
@@ -202,11 +202,14 @@ public class GestionVehiculos implements Gestionable{
      * Modifica los datos de un vehículo seleccionado por el usuario.
      * Permite cambiar atributos como marca, modelo, año, precio y stock.
      */
-    private void modVehiculo(){
+    @Override
+    public void modificacion(){
         do{
             System.out.println("Escribe el modelo del coche que quieres modificar");
             Vehiculo vehiculo = elige(false);
-            // pendiente ver que hacemos con la seccion
+            System.out.println("Sección actual del vehículo" + vehiculo.getSeccion().getID());
+            System.out.println("Elige la nueva sección, para mantenerlo en la misma reelige la sección");
+            vehiculo.setSeccion(gestionSecciones.elige());
             vehiculo.setMarca( MyInput.modString( "Nueva marca del vehiculo", vehiculo.getMarca() ) );
             vehiculo.setModelo( MyInput.modString( "Nuevo modelo del vehiculo", vehiculo.getModelo() ) );
             vehiculo.setAnioFabric( MyInput.modString( "Nuevo año de fabricación", vehiculo.getAnioFabric() ) );
@@ -247,15 +250,10 @@ public class GestionVehiculos implements Gestionable{
         }
     }
 
-    // TODO si no se usa, quitar
     public GestionSecciones getSecciones() {
         return gestionSecciones;
     }
 
-    /**
-     * Configura el módulo de gestión de secciones para esta gestión de vehículos.
-     * @param gestionSecciones Gestión de secciones asociada.
-     */
     public void setSecciones(GestionSecciones gestionSecciones) {
         this.gestionSecciones = gestionSecciones;
     }

@@ -10,16 +10,22 @@ package modelo;
  */
 public interface Gestionable {
     /**
-     * Método para dar de alta un nuevo elemento en el sistema.
+     * Dar de alta un nuevo elemento en el sistema.
      * Debe implementarse para agregar un nuevo objeto de tipo {@code T}.
      */
     void alta();
 
     /**
-     * Método para dar de baja un elemento existente del sistema.
+     * Dar de baja un elemento existente del sistema.
      * Debe implementarse para eliminar un objeto de tipo {@code T}.
      */
     void baja();
+
+    /**
+     * Modificar un elemento existente del sistema.
+     * Debe implementarse para eliminar un objeto de tipo {@code T}.
+     */
+    void modificacion();
 
     /**
      * Muestra el menú de opciones relacionadas con el módulo de gestión.

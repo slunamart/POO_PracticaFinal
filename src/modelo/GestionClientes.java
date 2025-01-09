@@ -3,6 +3,7 @@ package modelo;
 import ES.MyInput;
 import menus.Menu;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * @author Santiago Luna Martínez
  * @author Javier Herrería Martín
  */
-public class GestionClientes implements  Gestionable{
+public class GestionClientes implements Gestionable{
 
     private final Concesionario c;
 
@@ -48,6 +49,8 @@ public class GestionClientes implements  Gestionable{
 
         Menu menu_clientes = new Menu("Menú Clientes",
                 new String[]{"Añadir Cliente",
+                        "Dar de baja a un cliente",
+                        "Modificar datos clientes",
                         "Información de cliente",
                         "Información de todos los clientes",
                         "Información de clientes que desean recibir publicidad"});
@@ -61,12 +64,18 @@ public class GestionClientes implements  Gestionable{
                     alta();
                     break;
                 case 2:
-                    consultaCliente();
+                    baja();
                     break;
                 case 3:
-                    infoTodosClientes();
+                    modificacion();
                     break;
                 case 4:
+                    consultaCliente();
+                    break;
+                case 5:
+                    infoTodosClientes();
+                    break;
+                case 6:
                     infoClientesPublicidad();
                     break;
                 default:
@@ -139,6 +148,27 @@ public class GestionClientes implements  Gestionable{
         }else{
             c.rmCliente(cl);
         }
+    }
+
+    /**
+     * Permite modificar los datos de un cliente existente.
+     * Solicita al usuario seleccionar un cliente primero para editar sus atributos.
+     * Una vez editado, se muestra la información actualizada del cliente.
+     * El proceso se repite hasta que el usuario decida no realizar más modificaciones.
+     */
+    @Override
+    public void modificacion(){
+        do{
+            System.out.println("Eliga el cliente a modificar");
+            Cliente cliente = elige();
+            cliente.setDNI(MyInput.modString("DNI actual", cliente.getDNI() ) );
+            cliente.setNombre(MyInput.modString("Nombre actual", cliente.getNombre() ) );
+            cliente.setApellidos(MyInput.modString("Apellidos actuaes", cliente.getApellidos() ) );
+            cliente.setTelefono(MyInput.modString("Teléfono actual", cliente.getTelefono() ) );
+            cliente.setDeseaInfo(MyInput.modBool("Interés en recibir publicidad", cliente.getDeseaInfo() ) );
+            showCliente(cliente);
+        }while(MyInput.yesNoQuestion("¿Quieres modificar los datos de otra secció?"));
+
     }
 
     /**

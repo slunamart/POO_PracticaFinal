@@ -2,7 +2,6 @@ package menus;
 
 import ES.MyInput;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,7 +48,6 @@ public class Menu {
                 System.out.println("opcion incorrecta");
             }
         }while( !this.opcionEsValida( opcionNumber ) );
-        System.out.println("=========================================================");
         return opcionNumber;
     }
 

@@ -87,6 +87,20 @@ public class MyInput {
         }
     }
 
+    /**
+     * Solicita al usuario una cadena de texto con la posibilidad de asignar un valor por defecto.
+     * @param prompt Mensaje para solicitar la entrada del usuario.
+     * @param defaultValue Valor predeterminado si el usuario no introduce texto.
+     * @return true/false dependiendo de la entrada
+     */
+    public static boolean modBool( String prompt, boolean defaultValue ){
+        String newValue = readString( prompt + "( " + defaultValue + " )" );
+        if( newValue.isEmpty() )
+            return defaultValue;
+        else
+            return yesNoQuestion();
+    }
+
     public static int readInt( ){
         return readInt( null );
     }

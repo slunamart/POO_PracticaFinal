@@ -82,7 +82,7 @@ public class GestionVentas implements Gestionable{
                     baja();
                     break;
                 case 3: // modificacion de una venta
-                    modVenta();
+                    modificacion();
                     break;
                 case 4: // consulta del historial de ventas
                     mostrarVentas();
@@ -216,7 +216,8 @@ public class GestionVentas implements Gestionable{
     /**
      * Permite modificar los datos de una venta existente.
      */
-    public void modVenta(){
+    @Override
+    public void modificacion(){
         do{
             System.out.println("Elige la venta a modificar");
             Venta venta = elige();
