@@ -3,6 +3,7 @@ package modelo;
 import ES.MyInput;
 import menus.Menu;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class GestionSecciones implements  Gestionable{
                     baja();
                     break;
                 case 3: // modificacion de una seccion
-
+                    modificacion();
                     break;
                 case 4: // consulta de secciones disponibles
                     mostrarSecciones();
@@ -100,16 +101,41 @@ public class GestionSecciones implements  Gestionable{
      */
     @Override
     public void baja(){
-        System.out.println("Baja de una sección");
-        Seccion seccion = new Seccion();
-        seccion.setID(MyInput.readString("Di el nombre de la sección que quieres dar de baja") );
-        if (c.existeSeccion(seccion)){
+        System.out.println("Elige la sección a dar de baja" );
+        Seccion seccion = elige();
+        if(!seccion.equals( c.getSinSeccion() ) ) {
             c.rmSeccion(seccion);
         }
-        else{
-            System.out.println("no existe tal sección con ese ID");
-        }
+    }
 
+    /**
+     * Permite modificar los datos de una sección existente.
+     * Solicita al usuario seleccionar una sección para editar sus atributos.
+     * El identificador y la descripción actuales de la sección pueden ser modificados.
+     * Una vez editada, se muestra la información actualizada de la sección.
+     * El proceso se repite hasta que el usuario decida no realizar más modificaciones.
+     */
+    @Override
+    public void modificacion(){
+        do{
+            System.out.println("Escribe la sección a modificar");
+            Seccion seccion = elige();
+            seccion.setID(MyInput.modString("ID acutal", seccion.getID() ) );
+            seccion.setDescripcion(MyInput.modString("Descripción acutal", seccion.getDescripcion() ) );
+            showSeccion(seccion);
+        }while(MyInput.yesNoQuestion("¿Quieres modificar los datos de otra sección?"));
+
+    }
+
+    /**
+     * Muestra la información detallada de una sección.
+     * Imprime el identificador único y la descripción de la sección especificada.
+     * @param s Sección cuya información será mostrada.
+     */
+    public void showSeccion(Seccion s){
+        System.out.println("--------------------------------------------------------");
+        System.out.println("ID: " + s.getID());
+        System.out.println("Descripción: " + s.getDescripcion());
     }
 
     /**

@@ -14,11 +14,10 @@ import java.util.List;
 public class Concesionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    //los Lists son final porque (por ahora) no se reasignarán
     private final Seccion noSeccion;
-    private final List<Seccion> secciones;
-    private final List<Cliente> clientes;
-    private final List<Vehiculo> vehiculos;
+    private final GenericGestionable<Seccion> secciones;
+    private final GenericGestionable<Cliente> clientes;
+    private final GenericGestionable<Vehiculo> vehiculos;
     private final List<Venta> ventas;
     private final List<String> matriculas;
 
@@ -28,9 +27,9 @@ public class Concesionario implements Serializable {
      */
     public Concesionario (){
         noSeccion = new Seccion( "Sin Sección", "No añadido a ninguna sección todavía" );
-        this.secciones = new ArrayList<>();
-        this.clientes = new ArrayList<>();
-        this.vehiculos = new ArrayList<>();
+        this.secciones = new GenericGestionable<>();
+        this.clientes = new GenericGestionable<>();
+        this.vehiculos = new GenericGestionable<>();
         this.ventas = new ArrayList<>();
         this.matriculas = new ArrayList<>();
     }
@@ -48,7 +47,7 @@ public class Concesionario implements Serializable {
      * @param s Sección a agregar.
      */
     public void addSeccion( Seccion s ){
-        this.secciones.add( s );
+        this.secciones.alta( s );
     }
 
     /**
@@ -64,7 +63,7 @@ public class Concesionario implements Serializable {
      * @param v Vehículo a agregar.
      */
     public void addVehiculo(Vehiculo v){
-        this.vehiculos.add(v);
+        this.vehiculos.alta(v);
     }
 
     /**
@@ -73,12 +72,8 @@ public class Concesionario implements Serializable {
      * @return El vehículo encontrado o {@code null} si no existe.
      */
     public Seccion getSeccion(Seccion s){
-        for ( Seccion s2 : secciones){
-            if (s2.equals(s)){
-                return s2;
-            }
-        }
-        return getSinSeccion();
+        // como nunca habrá un elemento repetido me quedo siempre con el primero
+        return secciones.buscar(v2 -> v2.equals(s)).get(0);
     }
 
     /**
@@ -86,13 +81,9 @@ public class Concesionario implements Serializable {
      * @param v Vehículo a buscar.
      * @return El vehículo encontrado o {@code null} si no existe.
      */
-    public Vehiculo getVehiculo(Vehiculo v){
-        for ( Vehiculo v2 : vehiculos){
-            if (v2.equals(v)){
-                return v2;
-            }
-        }
-        return null;
+    public Vehiculo getVehiculo(Vehiculo v) {
+        // como nunca habrá un elemento repetido me quedo siempre con el primero
+        return vehiculos.buscar(v2 -> v2.equals(v)).get(0);
     }
 
     /**
@@ -100,26 +91,16 @@ public class Concesionario implements Serializable {
      * @param v Vehículo a verificar.
      * @return {@code true} si el vehículo existe, {@code false} en caso contrario.
      */
-    public boolean existeVehiculo(Vehiculo v){
-        for ( Vehiculo v2 : vehiculos){
-            if (v2.equals(v)){
-                return true;
-            }
-        }
-        return false;
+    public boolean existeVehiculo(Vehiculo v) {
+        return vehiculos.contiene(v2 -> v2.equals(v));
     }
 
     /**
      * Reduce el stock de un vehículo específico.
      * @param v Vehículo al que se le reducirá el stock.
-     * @param qtty Cantidad a reducir.
      */
-    public void rmVehiculo(Vehiculo v, int qtty){
-        for ( Vehiculo v2 : vehiculos){
-            if (v2.equals(v)){
-                v2.updateStock(qtty);
-            }
-        }
+    public void rmVehiculo(Vehiculo v){
+        vehiculos.baja(v);
     }
 
     /**
@@ -127,7 +108,7 @@ public class Concesionario implements Serializable {
      * @param s Sección a eliminar.
      */
     public void rmSeccion(Seccion s){
-        secciones.remove(s);
+        secciones.baja(s);
     }
 
     /**
@@ -147,7 +128,7 @@ public class Concesionario implements Serializable {
      * @return Lista de vehículos.
      */
     public List<Vehiculo> getArrayVehiculos(){
-        return vehiculos;
+        return vehiculos.getArray();
     }
 
     /**
@@ -155,7 +136,7 @@ public class Concesionario implements Serializable {
      * @return Lista de secciones.
      */
     public List<Seccion> getArraySecciones(){
-        return secciones;
+        return secciones.getArray();
     }
 
     /**
@@ -179,12 +160,7 @@ public class Concesionario implements Serializable {
     }
 
     public boolean existeSeccion(Seccion s){
-        for (Seccion s2 : secciones){
-            if (s2.equals(s)){
-                return true;
-            }
-        }
-        return false;
+        return secciones.contiene(s2 -> s2.equals(s));
     }
 
     //parte de matrículas
@@ -254,7 +230,7 @@ public class Concesionario implements Serializable {
      * @return Cliente encontrado o {@code null} si no existe.
      */
     public Cliente buscarPorDNI(String dni) {
-        for (Cliente cliente : clientes) {
+        for (Cliente cliente : clientes.getArray()) {
             if (cliente.getDNI().equals(dni)) {
                 return cliente;
             }
@@ -267,7 +243,7 @@ public class Concesionario implements Serializable {
      * @param cl Cliente a agregar.
      */
     public void addCliente(Cliente cl){
-        clientes.add(cl);
+        clientes.alta(cl);
     }
 
     /**
@@ -275,7 +251,7 @@ public class Concesionario implements Serializable {
      * @param cl Cliente a eliminar.
      */
     public void rmCliente(Cliente cl){
-        clientes.remove(cl);
+        clientes.baja(cl);
     }
 
     /**
@@ -294,8 +270,12 @@ public class Concesionario implements Serializable {
         return clientes.size();
     }
 
+    /**
+     * Obtiene la lista de clientes.
+     * @return Lista de clientes.
+     */
     public List<Cliente> getArrayClientes(){
-        return clientes;
+        return clientes.getArray();
     }
 
 }
