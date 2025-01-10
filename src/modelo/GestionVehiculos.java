@@ -126,7 +126,7 @@ public class GestionVehiculos implements Gestionable{
         vehiculo.setPrecioBase( BigDecimal.valueOf( MyInput.readDouble("precioBase") ) );
         vehiculo.setStock( MyInput.readInt("Stock") );
         System.out.println("========================================================");
-        c.addVehiculo( vehiculo);
+        c.addVehiculo(vehiculo);
     }
 
     /**

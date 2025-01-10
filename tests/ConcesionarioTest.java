@@ -69,7 +69,7 @@ public class ConcesionarioTest {
 
         Vehiculo v2 = new Vehiculo();
         v2.setModelo("Forito");
-        this.c.rmVehiculo(v2,-1);
+        this.c.rmVehiculo(v2);
         v2 = c.getVehiculo(v2);
         assertEquals(v2.getStock(), 9);
     }
