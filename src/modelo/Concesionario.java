@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Santiago Luna Martínez
  * @author Javier Herrería Martín
- */
+ */ 
 public class Concesionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
