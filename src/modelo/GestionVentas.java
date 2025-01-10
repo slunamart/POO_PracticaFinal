@@ -141,8 +141,8 @@ public class GestionVentas implements Gestionable{
         System.out.println("========================================================");
         System.out.println("========================================================");
 
-        String IDbuscar = MyInput.readString("Introduzca el ID del coche que está comprando");
-        venta.setVehiculo( c.buscarPorID(IDbuscar) );
+        System.out.println("Elige el coche que va a comprar");
+        venta.setVehiculo( c.buscarPorID( gestionVehiculos.eligeIDVehiculo() ) );
         Vehiculo v = venta.getVehiculo();
         if (venta.getVehiculo() == null){return;}
         venta.getVehiculo().updateStock(-1);

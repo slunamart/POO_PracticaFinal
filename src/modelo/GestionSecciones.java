@@ -86,6 +86,7 @@ public class GestionSecciones implements  Gestionable{
      */
     @Override
     public void alta(){
+        System.out.println("=========================================================");
         System.out.println("Alta de una sección");
         Seccion seccion = new Seccion();
         System.out.println("El identificador de sección puede ser algo como");

@@ -1,5 +1,3 @@
-import modelo.Concesionario;
-import org.junit.Before;
 import org.junit.Test;
 import modelo.Cliente;
 import static org.junit.Assert.*;
@@ -10,16 +8,6 @@ import static org.junit.Assert.*;
  * @see modelo.GestionClientes
  */
 public class GestionClientesTest {
-
-    private Concesionario c;
-
-    /**
-     * Inicializa un concesionario vacío antes de cada prueba.
-     */
-    @Before
-    public void before(){
-        this.c = new Concesionario();
-    }
 
     @Test
     public void equalsWorks(){

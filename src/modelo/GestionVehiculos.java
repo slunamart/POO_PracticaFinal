@@ -190,6 +190,23 @@ public class GestionVehiculos implements Gestionable{
 
     }
 
+    public String eligeIDVehiculo(){
+        List<String> IDs = new ArrayList<>();
+        for (Vehiculo v2 : c.getArrayVehiculos()){
+            IDs.add( v2.getID() );
+        }
+
+        Menu menu_Vehiculos = new Menu("Lista de IDs de Vehículos",
+                IDs.toArray(new String[0]));
+        int opcion = menu_Vehiculos.show();
+        if (opcion == 0)
+            return null;
+        else{
+            return IDs.get(opcion - 1);
+        }
+
+    }
+
     /**
      * Consulta y muestra la información de todos los vehículos registrados en el concesionario.
      */

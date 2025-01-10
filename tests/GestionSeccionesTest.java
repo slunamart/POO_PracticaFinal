@@ -1,9 +1,6 @@
-import ES.MyInput;
 import modelo.*;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-//TODO quitar imports sin usar
 
 
 /**
@@ -13,14 +10,15 @@ import static org.junit.Assert.*;
  */
 public class GestionSeccionesTest {
 
-    private Concesionario c;
-
-    /**
-     * Inicializa un concesionario vacío antes de cada prueba.
-     */
-    @Before
-    public void before(){
-        this.c = new Concesionario();
+    @Test
+    public void equalsWorks(){
+        Seccion s1 = new Seccion();
+        Seccion s2 = new Seccion();
+        s1.setID("alpha");
+        s2.setID("alpha");
+        s1.setDescripcion("uno");
+        s2.setDescripcion("dos");
+        //tiene que ser assertTrue porque quiero probar el equals
+        assertTrue(s1.equals(s2));
     }
-
 }
